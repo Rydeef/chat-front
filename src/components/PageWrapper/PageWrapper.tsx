@@ -1,22 +1,23 @@
 import React, { FC, ReactNode, useEffect } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
+import Header from '../Header';
 
 interface IProps {
-    children: ReactNode
+  children: ReactNode;
 }
 
-const PageWrapper: FC<IProps> = ({children}) => {
+const PageWrapper: FC<IProps> = ({ children }) => {
+  useEffect(() => {
+    if (!localStorage.getItem('talkaccesstoken')) {
+      // history.push('/login')
+    }
+  }, []);
 
-    useEffect(()=> {
-        if(!localStorage.getItem('talkaccesstoken')){
-            // history.push('/login')
-        }
-    },[])
-
-    return <div className='flex h-full'>
-        <Sidebar/>
-        {children}
+  return (
+    <div className='flex flex-col px-32 w-full h-screen'>
+      <Header />
+      {children}
     </div>
-}
+  );
+};
 
 export default PageWrapper;

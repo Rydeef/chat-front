@@ -15,6 +15,9 @@ module.exports = {
         gray1: "#424554",
         gray2: "#EBEBEB",
         gray3: "#797C87",
+        background:{
+          dark: "#191919",
+        },
         transparent: "rgba(0,0,0,0.2)",
       },
       screens: {
