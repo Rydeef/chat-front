@@ -3,14 +3,14 @@ import { Route, Routes } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper/PageWrapper";
 
 import { PATHNAMES } from "../constants/routes";
-import Chats from "../pages/Chats";
+import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AppRoute from "./AppRoute";
 
 const layoutRoutes: { element: ReactNode; path: PATHNAMES }[] = [
   {
-    element: <Chats />,
+    element: <Home />,
     path: PATHNAMES.CHATS,
   },
 ];
