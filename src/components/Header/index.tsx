@@ -5,7 +5,7 @@ import { ReactComponent as UserIcon } from '../../assets/user-svg.svg';
 
 const Header = () => {
   return (
-    <div className='w-full flex px-7 justify-between items-center bg-background-dark mb-6 rounded-b-lg'>
+    <div className='w-full flex px-7 justify-between items-center bg-dark mb-6 rounded-b-lg'>
       <Logo className='w-11' />
       <div className='flex w-32 justify-between items-center'>
         <CreateChat className='cursor-pointer fill-white' />
