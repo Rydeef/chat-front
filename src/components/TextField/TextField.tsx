@@ -9,13 +9,23 @@ interface Props {
   onChange: (value: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const TextField: FC<Props> = ({ placeholder, className, isDisabled, ...props }) => {
+const TextField: FC<Props> = ({
+  placeholder,
+  className,
+  isDisabled,
+  ...props
+}) => {
   const inputStyle = cn(
-    'w-full bg-gray text-gray2 outline-none p-2 rounded-md text-base placeholder:text-gray2 duration-300 hover:bg-gray3 focus:bg-gray3',
+    'w-full bg-gray-0 text-gray-3 outline-none p-2 rounded-md text-base placeholder:text-gray-1 duration-300 hover:bg-gray-2 focus:bg-gray-2',
     className
   );
   return (
-    <input placeholder={placeholder} className={inputStyle} disabled={isDisabled} {...props} />
+    <input
+      placeholder={placeholder}
+      className={inputStyle}
+      disabled={isDisabled}
+      {...props}
+    />
   );
 };
 

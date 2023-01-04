@@ -9,7 +9,13 @@ interface Props {
   type?: 'submit' | 'button';
 }
 
-const Button: FC<Props> = ({ children, color, className, onClick, type = 'button' }) => {
+const Button: FC<Props> = ({
+  children,
+  color,
+  className,
+  onClick,
+  type = 'button',
+}) => {
   return (
     <button
       onClick={onClick}
@@ -19,7 +25,7 @@ const Button: FC<Props> = ({ children, color, className, onClick, type = 'button
         className,
         {
           'bg-accent': color === 'primary',
-          'bg-gray3': color === 'secondary',
+          'bg-gray-2': color === 'secondary',
         }
       )}
     >
