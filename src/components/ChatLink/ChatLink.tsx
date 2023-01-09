@@ -7,17 +7,33 @@ const ChatLink = () => {
 
   setTimeout(() => setLoad(false), 2000);
 
+  const MOCK_MESSAGE = [
+    {
+      id: 'ID-1',
+      avatar: 'avatar',
+      title: 'TITLE1',
+      time: '12:00',
+      lastMessage: 'Message1',
+    },
+    {
+      id: 'ID-2',
+      avatar: 'avatar2',
+      title: 'TITLE2',
+      time: '13:00',
+      lastMessage: 'Message2',
+    },
+    {
+      id: 'ID-3',
+      avatar: 'avatar3',
+      title: 'TITLE3',
+      time: '14:00',
+      lastMessage: 'Message3',
+    },
+  ];
+
   return (
     <div>
-      {load ? (
-        <LoaderChatItem />
-      ) : (
-        <ChatItem
-          title='Я еблан'
-          time='12:40'
-          lastMessage='Я ебал тебя в сраку'
-        />
-      )}
+      {load ? <LoaderChatItem /> : <ChatItem messageItems={MOCK_MESSAGE} />}
     </div>
   );
 };

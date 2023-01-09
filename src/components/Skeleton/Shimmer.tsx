@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
-interface IProps {
+interface Props {
   className?: string;
 }
 
-const Shimmer: FC<IProps> = ({ className = '' }) => {
+const Shimmer: FC<Props> = ({ className = '' }) => {
   return (
     <div
       className={cn(

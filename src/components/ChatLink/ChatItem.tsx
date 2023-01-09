@@ -1,30 +1,28 @@
 import React, { FC } from 'react';
+import { Message } from './type';
 
 interface IProps {
-  avatar?: string;
-  title?: string;
-  time?: string;
-  lastMessage?: string;
+  messageItems: Message[];
 }
 
-const ChatItem: FC<IProps> = ({
-  avatar = 'AVATAR',
-  title,
-  time,
-  lastMessage,
-}) => {
+const ChatItem: FC<IProps> = ({ messageItems }) => {
   return (
     <div>
-      <div className='w-full h-20 flex items-center bg-dark px-6 py-5 my-3 rounded cursor-pointer'>
-        {avatar}
-        <div className='flex flex-col w-full gap-3 ml-5'>
-          <div className='flex justify-between'>
-            <div>{title}</div>
-            <div>{time}</div>
+      {messageItems.map(({ avatar, title, time, lastMessage, id }) => (
+        <div
+          key={id}
+          className='w-full flex items-center bg-dark px-6 py-5 my-3 rounded cursor-pointer'
+        >
+          {avatar}
+          <div className='w-full flex flex-col gap-3 ml-5'>
+            <div className='flex justify-between'>
+              <span className='font-bold'>{title}</span>
+              <span className='text-[14px]'>{time}</span>
+            </div>
+            <span className='text-gray-2'>{lastMessage}</span>
           </div>
-          <span className='text-gray-6'>{lastMessage}</span>
         </div>
-      </div>
+      ))}
     </div>
   );
 };
