@@ -1,11 +1,12 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar/Sidebar';
+import Chat from '../components/Chat';
 
 const Chats = () => {
   return (
     <div className='flex'>
       <Sidebar />
-      <div className='px-10'>content</div>
+      <Chat />
     </div>
   );
 };
