@@ -18,6 +18,10 @@ module.exports = {
           3: '#EBEBEB',
           4: '#797C87',
         },
+        message: {
+          0: '#285885',
+          1: '#0A3F70',
+        },
         transparent: 'rgba(0,0,0,0.2)',
       },
       screens: {
@@ -37,11 +41,11 @@ module.exports = {
         '.scrollbar::-webkit-scrollbar': {
           height: '4px',
           width: '4px',
-          backgroundColor: theme('colors.gray1'),
+          backgroundColor: theme('colors.gray-0'),
           borderRadius: '8px',
         },
         '.scrollbar::-webkit-scrollbar-thumb': {
-          backgroundColor: 'white',
+          backgroundColor: 'red',
           borderRadius: '8px',
         },
         body: {
