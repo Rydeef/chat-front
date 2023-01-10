@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar from '../Avatar';
-import { AVATAR_SIZE } from '../Avatar/constants';
+import { AVATAR_SIZES } from '../Avatar/constants';
 import ChatLink from '../ChatLink/ChatLink';
 
 const Sidebar = () => {
@@ -14,7 +14,7 @@ const Sidebar = () => {
           <Avatar
             color='bg-[#8E3200]'
             titleChat='Group1'
-            size={AVATAR_SIZE.S}
+            size={AVATAR_SIZES.S}
           />
         </div>
         <ChatLink />

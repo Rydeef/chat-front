@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { AVATAR_SIZE } from './constants';
+import { AVATAR_SIZES } from './constants';
 import Img from './pict.jpg';
 
 interface IProps {
   titleChat: string;
   color: string;
-  size: AVATAR_SIZE;
+  size: AVATAR_SIZES;
   imgUser?: string;
 }
 
@@ -17,7 +17,7 @@ const getRandomColor = (arr: string[]) => {
 const Avatar: FC<IProps> = ({
   titleChat,
   color,
-  size = AVATAR_SIZE.S,
+  size = AVATAR_SIZES.S,
   imgUser,
 }) => {
   const defaultClassName: string = cn(

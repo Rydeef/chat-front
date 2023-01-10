@@ -1,4 +1,4 @@
-export const AVATAR_COLOR: string[] = [
+export const AVATAR_COLORS: string[] = [
   'bg-[#827397]',
   'bg-[#FF7B54]',
   'bg-[#FFB26B]',
@@ -9,7 +9,7 @@ export const AVATAR_COLOR: string[] = [
   'bg-[#363062]',
 ];
 
-export enum AVATAR_SIZE {
+export enum AVATAR_SIZES {
   XXS = 'w-9 h-9 text-base',
   XS = 'w-12 h-12 text-2xl',
   S = 'w-16 h-16 text-4xl',
