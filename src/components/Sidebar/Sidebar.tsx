@@ -1,4 +1,6 @@
 import React from 'react';
+import Avatar from '../Avatar';
+import { AVATAR_SIZE } from '../Avatar/constants';
 import ChatLink from '../ChatLink/ChatLink';
 
 const Sidebar = () => {
@@ -8,28 +10,13 @@ const Sidebar = () => {
         Chats
       </div>
       <div className='overflow-auto p-3'>
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
-        <ChatLink />
+        <div className='w-full p-5 bg-dark rounded'>
+          <Avatar
+            color='bg-[#8E3200]'
+            titleChat='Group1'
+            size={AVATAR_SIZE.S}
+          />
+        </div>
         <ChatLink />
       </div>
     </div>
