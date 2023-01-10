@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Message } from './type';
+import { Message } from './types';
 
 interface IProps {
   messageItems: Message[];
@@ -7,7 +7,7 @@ interface IProps {
 
 const ChatItem: FC<IProps> = ({ messageItems }) => {
   return (
-    <div>
+    <>
       {messageItems.map(({ avatar, title, time, lastMessage, id }) => (
         <div
           key={id}
@@ -23,7 +23,7 @@ const ChatItem: FC<IProps> = ({ messageItems }) => {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 
