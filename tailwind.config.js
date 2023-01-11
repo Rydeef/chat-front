@@ -28,6 +28,10 @@ module.exports = {
         gl: '1024px',
         xl: '1201px',
       },
+      spacing: {
+        105: '420px',
+        200: '800px',
+      },
     },
   },
   plugins: [
