@@ -1,34 +1,39 @@
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState, FC } from 'react';
 import { createPortal } from 'react-dom';
 
-const createWrapper = (wrapperId : any) => {
+const createWrapper = (wrapperId : string) => {
   const wrapperElement = document.createElement('div');
   wrapperElement.setAttribute('id', wrapperId);
   document.body.appendChild(wrapperElement);
   return wrapperElement;
 };
 
-// export const Portal = ({ children : any, wrapperId = 'modal-window' }) => {
-//   const [wrapperElement, setWrapperElement] = useState(null);
+interface Props {
+    children: React.ReactNode;
+    wrapperId?: string;
+}
 
-//   useLayoutEffect(() => {
-//     let element = document.getElementById(wrapperId);
-//     let systemCreated = false;
+export const Portal: FC<Props> = ({ children, wrapperId = 'modal-window' }) => {
+  const [wrapperElement, setWrapperElement] = useState<HTMLElement>();
 
-//     if (!element) {
-//       systemCreated = true;
-//       element = createWrapper(wrapperId);
-//     }
-//     setWrapperElement(element);
+  useLayoutEffect(() => {
+    let element = document.getElementById(wrapperId);
+    let systemCreated = false;
 
-//     return () => {
-//       if (systemCreated && element.parentNode) {
-//         element.parentNode.removeChild(element);
-//       }
-//     };
-//   }, [wrapperId]);
+    if (!element) {
+      systemCreated = true;
+      element = createWrapper(wrapperId);
+    }
+    setWrapperElement(element);
 
-//   if (wrapperElement === null) return null;
+    return () => {
+      if (systemCreated && element?.parentNode) {
+        element.parentNode.removeChild(element);
+      }
+    };
+  }, [wrapperId]);
 
-//   return createPortal(children, wrapperElement);
-// };
+  if (wrapperElement === undefined) return null;
+
+  return createPortal(children, wrapperElement);
+};
