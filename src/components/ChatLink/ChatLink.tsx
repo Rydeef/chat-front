@@ -10,20 +10,23 @@ const ChatLink = () => {
   const MOCK_MESSAGE = [
     {
       id: 'ID-1',
-      avatar: 'avatar',
+      imgUrl: '1',
+      color: 'bg-[#827397]',
       title: 'TITLE1',
       time: '12:00',
       lastMessage: 'Message1',
     },
     {
       id: 'ID-2',
-      avatar: 'avatar2',
+      color: 'bg-[#FF7B54]',
       title: 'TITLE2',
       time: '13:00',
-      lastMessage: 'Message2',
+      lastMessage:
+        'Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage',
     },
     {
       id: 'ID-3',
+      color: 'bg-[#FF7B54]',
       avatar: 'avatar3',
       title: 'TITLE3',
       time: '14:00',
@@ -32,9 +35,7 @@ const ChatLink = () => {
   ];
 
   return (
-    <div>
-      {load ? <LoaderChatItem /> : <ChatItem messageItems={MOCK_MESSAGE} />}
-    </div>
+    <>{load ? <LoaderChatItem /> : <ChatItem messageItems={MOCK_MESSAGE} />}</>
   );
 };
 

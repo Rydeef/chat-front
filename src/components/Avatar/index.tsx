@@ -6,7 +6,7 @@ import Img from './pict.jpg';
 interface IProps {
   titleChat: string;
   color: string;
-  size: AVATAR_SIZES;
+  size?: AVATAR_SIZES;
   imgUser?: string;
 }
 
@@ -21,7 +21,7 @@ const Avatar: FC<IProps> = ({
   imgUser,
 }) => {
   const defaultClassName: string = cn(
-    'rounded-full flex items-center justify-center pointer-events-none select-none',
+    'rounded-full flex items-center justify-center pointer-events-none select-none shrink-0',
     color,
     size
   );
