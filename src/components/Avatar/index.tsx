@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { AVATAR_SIZES } from './constants';
 import Img from './pict.jpg';
 
-interface IProps {
+interface Props {
   titleChat: string;
   color: string;
   size?: AVATAR_SIZES;
@@ -14,7 +14,7 @@ const getRandomColor = (arr: string[]) => {
   return arr[Math.round(Math.random() * arr.length)];
 };
 
-const Avatar: FC<IProps> = ({
+const Avatar: FC<Props> = ({
   titleChat,
   color,
   size = AVATAR_SIZES.S,
