@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { useField } from "formik";
+import React, { FC } from 'react';
+import { useField } from 'formik';
 
-import TextField from "../TextField/TextField";
+import TextField from '../TextField/TextField';
 
 interface Props {
   placeholder?: string;
@@ -17,7 +17,7 @@ export const Input: FC<Props> = ({ name, className, isDisabled, ...props }) => {
   return (
     <div className={className}>
       <TextField {...field} {...props} value={value} isDisabled={isDisabled} />
-      <div className="text-red text-sm h-[28px]">{showError && error}</div>
+      <div className='text-red text-sm h-7'>{showError && error}</div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import ChatInput from '../TextField/ChatInput';
 import MessageItem from '../MessageItem';
 
 interface Messages {
@@ -105,11 +106,7 @@ const Chat = () => {
         ))}
       </div>
       <div className='w-full h-16 bg-dark sticky bottom-0 flex justify-center px-5 py-3'>
-        <input
-          className='w-full h-full text-black rounded px-3 py-4'
-          placeholder='message'
-          type='text'
-        />
+        <ChatInput />
       </div>
     </div>
   );
