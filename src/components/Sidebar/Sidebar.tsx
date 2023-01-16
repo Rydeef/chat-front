@@ -1,6 +1,5 @@
 import React from 'react';
 import ChatLink from '../ChatLink/ChatLink';
-import LoaderChatItem from '../Skeleton/LoaderChatItem';
 
 const Sidebar = () => {
   return (
@@ -9,7 +8,6 @@ const Sidebar = () => {
         Chats
       </div>
       <div className='overflow-auto px-3'>
-        <LoaderChatItem />
         <ChatLink />
       </div>
     </div>
