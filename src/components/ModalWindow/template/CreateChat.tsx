@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { FormikProvider, useFormik } from 'formik';
 import * as yup from 'yup';
-import { ReactComponent as Cross } from '../../../assets/cross.svg';
+import { ReactComponent as CloseButton } from '../../../assets/close-button.svg';
 import Button from '../../Button/Button';
 import { Input } from '../../FormField/Input';
 
@@ -9,12 +9,16 @@ interface Props {
   onClose: () => void;
 }
 
+interface FormSubmit {
+  nameChat: string;
+}
+
 const VALIDATION_SCHEMA = yup.object().shape({
-  userChat: yup.string().required('Required'),
+  nameChat: yup.string().required('Required'),
 });
 
 const CreateChat: FC<Props> = ({ onClose }) => {
-  const onSubmit = (values: { nameChat: string }) => {};
+  const onSubmit = (values: FormSubmit) => {};
 
   const formik = useFormik({
     initialValues: {
@@ -38,7 +42,7 @@ const CreateChat: FC<Props> = ({ onClose }) => {
             <span className='text-4xl text-[#39C198] uppercase tracking-wide'>
               Create chat
             </span>
-            <Cross onClick={onClose} className='cursor-pointer' />
+            <CloseButton onClick={onClose} className='cursor-pointer' />
           </div>
           <Input placeholder='Name chat' name='nameChat' />
           <div>

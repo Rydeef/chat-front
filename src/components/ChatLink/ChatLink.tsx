@@ -34,9 +34,7 @@ const ChatLink = () => {
     },
   ];
 
-  return (
-    <>{load ? <LoaderChatItem /> : <ChatItem messageItems={MOCK_MESSAGE} />}</>
-  );
+  return load ? <LoaderChatItem /> : <ChatItem messageItems={MOCK_MESSAGE} />;
 };
 
 export default ChatLink;
