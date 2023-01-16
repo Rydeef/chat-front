@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Loader from '../Skeleton/Loader';
 import LoaderChatItem from '../Skeleton/LoaderChatItem';
 import ChatItem from './ChatItem';
 
@@ -34,7 +35,14 @@ const ChatLink = () => {
     },
   ];
 
-  return load ? <LoaderChatItem /> : <ChatItem messageItems={MOCK_MESSAGE} />;
+  return load ? (
+    <div className='flex flex-col justify-center items-center'>
+      <LoaderChatItem />
+      <Loader />
+    </div>
+  ) : (
+    <ChatItem messageItems={MOCK_MESSAGE} />
+  );
 };
 
 export default ChatLink;
