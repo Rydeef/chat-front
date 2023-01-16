@@ -7,7 +7,7 @@ import Button from '../components/Button/Button';
 import { Input } from '../components/FormField/Input';
 import { history } from '../services/history';
 
-export interface LoginFormValues {
+interface LoginFormValues {
   username?: string;
   password?: string;
 }

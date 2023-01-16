@@ -1,5 +1,5 @@
-import React, { FC, ReactNode, MouseEvent } from "react";
-import { Portal } from "./Portal";
+import React, { FC, ReactNode, MouseEvent } from 'react';
+import { Portal } from './Portal';
 
 interface Props {
   isOpen: boolean;
@@ -17,11 +17,11 @@ const ModalWindow: FC<Props> = ({ children, isOpen, onClose }) => {
   return (
     <Portal>
       <div
-        className="w-screen h-screen bg-black/80 fixed top-0 left-0"
+        className='w-screen h-screen bg-black/80 fixed top-0 left-0'
         onClick={onClose}
       >
         <div
-          className="fixed w-[400px] h-[400px] top-1/2 -translate-y-2/4 left-1/2 -translate-x-2/4 opacity-100 p-8 bg-white rounded-2xl text-black"
+          className='fixed top-1/2 -translate-y-2/4 left-1/2 -translate-x-2/4 opacity-100 p-8 bg-[#191919] rounded-2xl text-white'
           onClick={handlerClick}
         >
           {children}

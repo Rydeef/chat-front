@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import MessageItem from '../MessageItem';
 
 interface Messages {
@@ -84,19 +84,24 @@ const MOCK_MESSAGES: Messages[] = [
 ];
 
 const Chat = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    ref.current?.scrollIntoView({
+      inline: 'start',
+    });
+  }, [ref]);
+
   return (
     <div className='w-full h-[800px] flex flex-col bg-dark justify-end relative'>
       <div className='w-full h-20 p-5 sticky border-b-2 border-gray-0 mb-5'>
         123123123123
       </div>
       <div className='overflow-y-auto px-5 '>
-        {MOCK_MESSAGES.map(({ id, name, messageText, time }) => (
-          <MessageItem
-            key={id}
-            name={name}
-            messageText={messageText}
-            time={time}
-          />
+        {MOCK_MESSAGES.map(({ id, name, messageText, time }, index) => (
+          <div key={id} ref={index === MOCK_MESSAGES.length - 1 ? ref : null}>
+            <MessageItem name={name} messageText={messageText} time={time} />
+          </div>
         ))}
       </div>
       <div className='w-full h-16 bg-dark sticky bottom-0 flex justify-center px-5 py-3'>

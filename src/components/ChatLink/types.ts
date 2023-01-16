@@ -1,6 +1,7 @@
 export interface Message {
   id: string;
-  avatar: string;
+  imgUrl?: string;
+  color: string;
   title: string;
   time: string;
   lastMessage: string;

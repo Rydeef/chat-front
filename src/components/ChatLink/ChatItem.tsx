@@ -1,23 +1,24 @@
 import React, { FC } from 'react';
+import Avatar from '../Avatar';
 import { Message } from './types';
 
-interface IProps {
+interface Props {
   messageItems: Message[];
 }
 
-const ChatItem: FC<IProps> = ({ messageItems }) => {
+const ChatItem: FC<Props> = ({ messageItems }) => {
   return (
     <>
-      {messageItems.map(({ avatar, title, time, lastMessage, id }) => (
+      {messageItems.map(({ color, title, time, lastMessage, id }) => (
         <div
           key={id}
-          className='w-full flex items-center bg-dark px-6 py-5 my-3 rounded cursor-pointer'
+          className='w-80 flex items-center bg-dark px-4 py-5 my-3 rounded cursor-pointer '
         >
-          {avatar}
-          <div className='w-full flex flex-col gap-3 ml-5'>
+          <Avatar titleChat={title} color={color} />
+          <div className='w-full flex flex-col gap-3 ml-5 truncate'>
             <div className='flex justify-between'>
               <span className='font-bold'>{title}</span>
-              <span className='text-[14px]'>{time}</span>
+              <span className='text-sm'>{time}</span>
             </div>
             <span className='text-gray-2'>{lastMessage}</span>
           </div>
