@@ -10,10 +10,6 @@ interface Props {
   imgUser?: string;
 }
 
-const getRandomColor = (arr: string[]) => {
-  return arr[Math.round(Math.random() * arr.length)];
-};
-
 const Avatar: FC<Props> = ({
   titleChat,
   color,

@@ -1,47 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { getChatAsync, getChatList } from '../../app/modules/chat/actions';
+import {
+  selectChat,
+  selectChatList,
+  selectIsLoadingChat,
+} from '../../app/modules/chat/selectors';
 import Loader from '../Skeleton/Loader';
 import LoaderChatItem from '../Skeleton/LoaderChatItem';
 import ChatItem from './ChatItem';
 
 const ChatLink = () => {
-  const [load, setLoad] = useState(true);
+  const dispatch = useAppDispatch();
 
-  setTimeout(() => setLoad(false), 2000);
+  const chatList = useAppSelector(selectChatList);
+  const Loading = useAppSelector(selectIsLoadingChat);
 
-  const MOCK_MESSAGE = [
-    {
-      id: 'ID-1',
-      imgUrl: '1',
-      color: 'bg-[#827397]',
-      title: 'TITLE1',
-      time: '12:00',
-      lastMessage: 'Message1',
-    },
-    {
-      id: 'ID-2',
-      color: 'bg-[#FF7B54]',
-      title: 'TITLE2',
-      time: '13:00',
-      lastMessage:
-        'Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage Mesage',
-    },
-    {
-      id: 'ID-3',
-      color: 'bg-[#FF7B54]',
-      avatar: 'avatar3',
-      title: 'TITLE3',
-      time: '14:00',
-      lastMessage: 'Message3',
-    },
-  ];
+  useEffect(() => {
+    dispatch(getChatList());
+  }, [dispatch]);
 
-  return load ? (
+  const onClickItem = () => {
+    dispatch(getChatAsync());
+  };
+
+  return Loading ? (
     <div className='flex flex-col justify-center items-center'>
       <LoaderChatItem />
       <Loader />
     </div>
   ) : (
-    <ChatItem messageItems={MOCK_MESSAGE} />
+    <ChatItem onClickItem={onClickItem} messageItems={chatList} />
   );
 };
 

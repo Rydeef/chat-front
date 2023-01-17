@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { getChatList } from '../../app/modules/chat/actions';
+import { selectChatList } from '../../app/modules/chat/selectors';
 import ChatLink from '../ChatLink/ChatLink';
 
 const Sidebar = () => {

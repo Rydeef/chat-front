@@ -1,8 +1,8 @@
 import React from 'react';
-import Sidebar from '../components/Sidebar/Sidebar';
 import Chat from '../components/Chat';
+import Sidebar from '../components/Sidebar/Sidebar';
 
-const Chats = () => {
+const Home = () => {
   return (
     <div className='flex'>
       <Sidebar />
@@ -11,4 +11,4 @@ const Chats = () => {
   );
 };
 
-export default Chats;
+export default Home;

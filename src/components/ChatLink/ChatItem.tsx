@@ -1,18 +1,20 @@
 import React, { FC } from 'react';
+import { Chat } from '../../constants/types';
 import Avatar from '../Avatar';
-import { Message } from './types';
 
 interface Props {
-  messageItems: Message[];
+  messageItems: Chat[] | null;
+  onClickItem: (id: string) => void;
 }
 
-const ChatItem: FC<Props> = ({ messageItems }) => {
+const ChatItem: FC<Props> = ({ messageItems, onClickItem }) => {
   return (
     <>
-      {messageItems.map(({ color, title, time, lastMessage, id }) => (
+      {messageItems?.map(({ color, title, time, lastMessage, id }) => (
         <div
           key={id}
           className='w-80 flex items-center bg-dark px-4 py-5 my-3 rounded cursor-pointer '
+          onClick={() => onClickItem(id)}
         >
           <Avatar titleChat={title} color={color} />
           <div className='w-full flex flex-col gap-3 ml-5 truncate'>
