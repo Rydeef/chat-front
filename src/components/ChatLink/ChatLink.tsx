@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { getChatAsync, getChatList } from '../../app/modules/chat/actions';
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { getChatAsync, getChatList } from "../../app/modules/chat/actions";
 import {
   selectChat,
   selectChatList,
   selectIsLoadingChat,
-} from '../../app/modules/chat/selectors';
-import Loader from '../Skeleton/Loader';
-import LoaderChatItem from '../Skeleton/LoaderChatItem';
-import ChatItem from './ChatItem';
+} from "../../app/modules/chat/selectors";
+import Loader from "../Skeleton/Loader";
+import LoaderChatItem from "../Skeleton/LoaderChatItem";
+import ChatItem from "./ChatItem";
 
 const ChatLink = () => {
   const dispatch = useAppDispatch();
@@ -20,12 +20,14 @@ const ChatLink = () => {
     dispatch(getChatList());
   }, [dispatch]);
 
-  const onClickItem = () => {
-    dispatch(getChatAsync());
+  const onClickItem = (id: string) => {
+    console.log(id);
+
+    dispatch(getChatAsync(id));
   };
 
   return Loading ? (
-    <div className='flex flex-col justify-center items-center'>
+    <div className="flex flex-col justify-center items-center">
       <LoaderChatItem />
       <Loader />
     </div>

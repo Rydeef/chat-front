@@ -5,7 +5,9 @@ import { ChatState } from './types';
 export const chatReducer = (builder: ActionReducerMapBuilder<ChatState>) => {
   builder.addCase(getChatAsync.fulfilled, (state, action) => {
     state.isLoading = false;
-    state.selectedChat = action.payload!;
+    console.log(action);
+    
+    state.selectedChat = action.payload;
   });
 
   builder.addCase(getChatAsync.pending, (state) => {

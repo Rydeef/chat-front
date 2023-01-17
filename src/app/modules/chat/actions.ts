@@ -1,96 +1,97 @@
-import { MessageItem } from './types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { instance } from '../../../services/axios';
+import { AxiosRequestConfig } from 'axios';
+
+const MOCK_MESSAGE = [{
+  id: '1',
+  data: {
+    title: 'Ya pidoras',
+    color: 'bg-[#645CAA]',
+  },
+  messages: [
+    {
+      id: '1A',
+      userName: 'User',
+      message: 'Idi nahui',
+      time: '00:00',
+    },
+  ],
+},
+{
+  id: '2',
+  data: {
+    title: 'Mi tupie',
+    color: 'bg-[#827397]',
+  },
+  messages: [
+    {
+      userName: 'User',
+      messages: [
+        {
+          id: '1B',
+          userName: 'User',
+          message: 'Idi nahui',
+          time: '00:01',
+        },
+        {
+          id: '2B',
+          userName: 'User2',
+          message: 'Sam idi',
+          time: '00:02',
+        },
+      ],
+    },
+  ],
+},
+{
+  id: '3',
+  data: {
+    title: 'PALITEH',
+    color: 'bg-[#FFB26B]',
+  },
+  messages: [
+    {
+      userName: 'User',
+      messages: [
+        {
+          id: '1C',
+          userName: 'User',
+          message: 'Idi nahui',
+          time: '00:01',
+        },
+        {
+          id: '2C',
+          userName: 'User2',
+          message: 'Sam idi',
+          time: '00:02',
+        },
+        {
+          id: '3C',
+          userName: 'User',
+          message: 'Net ti idi',
+          time: '00:01',
+        },
+        {
+          id: '4C',
+          userName: 'User2',
+          message: ':c',
+          time: '00:02',
+        },
+      ],
+    },
+  ],
+},]
 
 export const SELECT_CHAT_SLICE_NAME = 'chat';
 export const CHAT_LIST_SLICE_NAME = 'chatList';
 
 export const getChatAsync = createAsyncThunk(
   `${SELECT_CHAT_SLICE_NAME}`,
-  async (values) => {
+  async (values : string ) => {
     try {
-      // const { data } = await instance.get('/...', values);
-
-      return [
-        {
-          id: '1',
-          data: {
-            title: 'Ya pidoras',
-            color: 'bg-[#645CAA]',
-          },
-          messages: [
-            {
-              id: '1A',
-              userName: 'User',
-              message: 'Idi nahui',
-              time: '00:00',
-            },
-          ],
-        },
-        {
-          id: '2',
-          data: {
-            title: 'Mi tupie',
-            color: 'bg-[#827397]',
-          },
-          messages: [
-            {
-              userName: 'User',
-              messages: [
-                {
-                  id: '1B',
-                  userName: 'User',
-                  message: 'Idi nahui',
-                  time: '00:01',
-                },
-                {
-                  id: '2B',
-                  userName: 'User2',
-                  message: 'Sam idi',
-                  time: '00:02',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: '3',
-          data: {
-            title: 'PALITEH',
-            color: 'bg-[#FFB26B]',
-          },
-          messages: [
-            {
-              userName: 'User',
-              messages: [
-                {
-                  id: '1C',
-                  userName: 'User',
-                  message: 'Idi nahui',
-                  time: '00:01',
-                },
-                {
-                  id: '2C',
-                  userName: 'User2',
-                  message: 'Sam idi',
-                  time: '00:02',
-                },
-                {
-                  id: '3C',
-                  userName: 'User',
-                  message: 'Net ti idi',
-                  time: '00:01',
-                },
-                {
-                  id: '4C',
-                  userName: 'User2',
-                  message: ':c',
-                  time: '00:02',
-                },
-              ],
-            },
-          ],
-        },
-      ] as MessageItem[];
+      //const { data } = await instance.get('/...', values);
+      
+      return MOCK_MESSAGE.filter((elem)=> elem.id === values)
     } catch (e) {
       console.log(e);
     }

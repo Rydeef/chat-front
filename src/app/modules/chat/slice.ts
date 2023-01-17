@@ -4,7 +4,7 @@ import { chatReducer } from './reducer';
 import { ChatState } from './types';
 
 const initialState: ChatState = {
-  isLoading: false,
+  isLoading: true,
   selectedChat: null,
   chatList: null,
 };

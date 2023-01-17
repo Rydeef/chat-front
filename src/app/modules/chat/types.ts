@@ -1,16 +1,16 @@
 export interface ChatState {
   isLoading: boolean;
-  selectedChat: MessageItem[] | null;
+  selectedChat: any;
   chatList: Chat[] | null;
 }
 
 export interface MessageItem {
   id: string;
   data: {
-    title: string;
     color: string;
+    title: string;
   };
-  messages: { id: string; userName: string; message: string; time: string }[];
+  messages: { id: string;message: string;   time: string; userName: string}[];
 }
 
 export interface Chat {
