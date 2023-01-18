@@ -7,7 +7,7 @@ export interface ChatState {
 }
 
 export interface ActiveChat {
-  id?: string;
+  _id?: string;
   userName: string;
   avatarColor: string;
 }
