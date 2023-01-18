@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 import { AVATAR_SIZES } from './constants';
-import Img from './pict.jpg';
 
 interface Props {
   titleChat?: string;

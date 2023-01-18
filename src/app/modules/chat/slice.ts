@@ -12,6 +12,7 @@ const initialState: ChatState = {
   isLoadingList: true,
   selectedChat: null,
   chatList: null,
+  activeChat: null,
 };
 
 export const { reducer: chat } = createSlice({

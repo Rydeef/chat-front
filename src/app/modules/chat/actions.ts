@@ -1,6 +1,6 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../services/axios';
-import { ActiveChat } from './types';
+import { ActiveChat, SendMessage } from './types';
 
 export const SELECT_CHAT_SLICE_NAME = 'chat';
 export const CHAT_LIST_SLICE_NAME = 'chatList';
@@ -23,7 +23,7 @@ export const getChatAsync = createAsyncThunk(
 
       return data;
     } catch (e: any) {
-      if (e.status === 200) return e.peyload;
+      if (e.status === 200) return e.data;
       return e;
     }
   }
@@ -40,6 +40,22 @@ export const getChatListAsync = createAsyncThunk(
       if (e.status === 200) {
         return e.data;
       }
+      return e;
+    }
+  }
+);
+
+export const sendMessageAsync = createAsyncThunk(
+  `${SEND_MESSAGE_SLICE_NAME}`,
+  async (values: SendMessage) => {
+    try {
+      const { data } = await instance.post(`/messages`, values);
+
+      console.log(data);
+
+      return data;
+    } catch (e: any) {
+      if (e.status === 200) return e;
       return e;
     }
   }

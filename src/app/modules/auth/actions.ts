@@ -13,17 +13,18 @@ export const authUserAsync = createAsyncThunk(
 
       console.log(data.token);
 
-      //window.localStorage.setItem('token', data?.token);
-      //history.push('/home');
+      window.localStorage.setItem('token', data?.token);
+      history.push('/home');
 
       return data?.user;
     } catch (e: any) {
       if (e.data.status) {
         history.push('/');
         window.localStorage.setItem('token', e.data?.token);
+
         return e.data;
       }
-      console.log(e);
+      return e;
     }
   }
 );

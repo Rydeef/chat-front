@@ -44,8 +44,6 @@ export const setActiveChatReducer = (
   builder: ActionReducerMapBuilder<ChatState>
 ) => {
   builder.addCase(setActiveChat, (state, action) => {
-    console.log(action.payload);
-
     state.activeChat = action.payload;
   });
 };
