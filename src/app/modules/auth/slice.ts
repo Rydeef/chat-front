@@ -4,7 +4,7 @@ import { authUserReducer } from './reducer';
 import { AuthState } from './types';
 
 const initialState: AuthState = {
-  isLoading: false,
+  isLoading: true,
   isAuthorized: false,
   userData: null,
 };

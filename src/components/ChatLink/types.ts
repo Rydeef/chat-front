@@ -1,8 +1,11 @@
 export interface Message {
   id: string;
-  imgUrl?: string;
-  color: string;
-  title: string;
-  time: string;
-  lastMessage: string;
+  avatarColor: string;
+  userName: string;
+}
+
+export interface ChatType {
+  _id: string;
+  avatarColor: string;
+  userName: string;
 }
