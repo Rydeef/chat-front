@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
-import { ChatHeader } from '../../constants/types';
-import Avatar from '../Avatar/Avatar';
+import React from 'react';
 import { AVATAR_SIZES } from '../Avatar/constants';
 import { ReactComponent as SettingSVG } from '../../assets/dots.svg';
 import { useAppSelector } from '../../app/hooks';
 import { selectActiveChat } from '../../app/modules/chat/selectors';
+import Avatar from '../Avatar/Avatar';
 
 const HeaderChat = () => {
   const { avatarColor, userName } = useAppSelector(selectActiveChat) || {};

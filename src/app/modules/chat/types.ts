@@ -1,14 +1,20 @@
 export interface ChatState {
   isLoadingMessages: boolean;
   isLoadingList: boolean;
-  activeChat?: ActiveChat;
+  activeChat: ActiveChat | null;
   selectedChat: any;
   chatList: Chat[] | null;
 }
 
 export interface ActiveChat {
+  id?: string;
   userName: string;
   avatarColor: string;
+}
+
+export interface SendMessage {
+  id: string;
+  message: string;
 }
 
 export interface MessageItem {

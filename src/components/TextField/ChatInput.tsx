@@ -2,6 +2,9 @@ import React, { KeyboardEvent } from 'react';
 import * as yup from 'yup';
 import { FormikProvider, useFormik } from 'formik';
 import TextArea from '../FormField/TextArea';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { sendMessageAsync } from '../../app/modules/chat/actions';
+import { selectActiveChat } from '../../app/modules/chat/selectors';
 
 const MASSAGE_NAME = 'message';
 
@@ -10,12 +13,18 @@ const VALIDATION_SCHEMA = yup.object().shape({
 });
 
 export interface UserMessage {
-  message?: string;
+  message: string;
 }
 
 const ChatInput = () => {
+  const dispatch = useAppDispatch();
+
+  const chat = useAppSelector(selectActiveChat);
+
   const onSubmit = (values: UserMessage) => {
-    console.log(values);
+    if (chat?.id) {
+      dispatch(sendMessageAsync({ id: chat.id, message: values.message }));
+    }
     formik.resetForm();
   };
 
