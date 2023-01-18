@@ -4,12 +4,20 @@ export interface ChatState {
   activeChat: ActiveChat | null;
   selectedChat: any;
   chatList: Chat[] | null;
+  currentSendingMessage: CurrentMessage | null;
 }
 
 export interface ActiveChat {
   _id?: string;
   userName: string;
   avatarColor: string;
+}
+
+export interface CurrentMessage {
+  fromSelf: boolean;
+  message: string;
+  time: string;
+  id: string;
 }
 
 export interface SendMessage {

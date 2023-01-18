@@ -27,3 +27,9 @@ export const selectChatList = createSelector(
   selectChatState,
   (state) => state.chatList
 );
+
+
+export const selectCurrentMessage = createSelector(
+  selectChatState,
+  (state) => state.currentSendingMessage
+);

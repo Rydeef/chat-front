@@ -27,8 +27,6 @@ const ChatInput: FC<Props> = ({ socket }) => {
   const chat = useAppSelector(selectActiveChat);
 
   const onSubmit = (values: UserMessage) => {
-    console.log(chat);
-
     dispatch(sendMessageAsync({ id: chat?._id!, message: values.message }));
 
     formik.resetForm();

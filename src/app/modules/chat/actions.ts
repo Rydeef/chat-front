@@ -55,7 +55,7 @@ export const sendMessageAsync = createAsyncThunk(
 
       return data;
     } catch (e: any) {
-      if (e.status === 200) return e;
+      if (e.status === 200) return e.data;
       return e;
     }
   }

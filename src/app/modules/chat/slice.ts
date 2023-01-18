@@ -4,6 +4,7 @@ import {
   getChatMessagesReducer,
   getChatListReducer,
   setActiveChatReducer,
+  sendMessageAsyncReducer,
 } from './reducer';
 import { ChatState } from './types';
 
@@ -13,6 +14,7 @@ const initialState: ChatState = {
   selectedChat: null,
   chatList: null,
   activeChat: null,
+  currentSendingMessage: null
 };
 
 export const { reducer: chat } = createSlice({
@@ -23,5 +25,6 @@ export const { reducer: chat } = createSlice({
     getChatMessagesReducer(builder);
     getChatListReducer(builder);
     setActiveChatReducer(builder);
+    sendMessageAsyncReducer(builder);
   },
 });

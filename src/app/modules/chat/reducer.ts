@@ -1,6 +1,11 @@
-import { ActionReducerMapBuilder } from '@reduxjs/toolkit';
-import { getChatAsync, getChatListAsync, setActiveChat } from './actions';
-import { ChatState } from './types';
+import { ActionReducerMapBuilder } from "@reduxjs/toolkit";
+import {
+  getChatAsync,
+  getChatListAsync,
+  sendMessageAsync,
+  setActiveChat,
+} from "./actions";
+import { ChatState } from "./types";
 
 export const getChatMessagesReducer = (
   builder: ActionReducerMapBuilder<ChatState>
@@ -45,5 +50,14 @@ export const setActiveChatReducer = (
 ) => {
   builder.addCase(setActiveChat, (state, action) => {
     state.activeChat = action.payload;
+  });
+};
+
+export const sendMessageAsyncReducer = (
+  builder: ActionReducerMapBuilder<ChatState>
+) => {
+  builder.addCase(sendMessageAsync.fulfilled, (state, action) => {
+    state.currentSendingMessage = action.payload;
+    state.selectedChat.push(action.payload);
   });
 };

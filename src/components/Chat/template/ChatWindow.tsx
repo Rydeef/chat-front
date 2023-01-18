@@ -25,16 +25,7 @@ const ChatWindow: FC<Props> = ({ chat, socket }) => {
       inline: 'start',
     });
   }, [ref]);
-
-  useEffect(() => {
-    if (socket) {
-      socket.on('msg-recieve', (msg) => {
-        console.log(msg);
-      });
-      socket?.emit('send-msg', 6546);
-    }
-  }, [socket]);
-
+  
   return (
     <>
       <div className='w-full h-28 px-5 sticky top-0 border-b-2 border-gray-0 mb-5'>
