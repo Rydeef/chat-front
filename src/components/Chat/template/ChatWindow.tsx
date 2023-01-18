@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useRef } from 'react';
+import { Socket } from 'socket.io-client';
 import MessageItem from '../../MessageItem/MessageItem';
 import ChatInput from '../../TextField/ChatInput';
 import HeaderChat from '../HeaderChat';
@@ -13,9 +14,10 @@ interface Messages {
 
 interface Props {
   chat: Messages[];
+  socket: Socket | null;
 }
 
-const ChatWindow: FC<Props> = ({ chat }) => {
+const ChatWindow: FC<Props> = ({ chat, socket }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -24,7 +26,14 @@ const ChatWindow: FC<Props> = ({ chat }) => {
     });
   }, [ref]);
 
-  console.log(chat);
+  useEffect(() => {
+    if (socket) {
+      socket.on('msg-recieve', (msg) => {
+        console.log(msg);
+      });
+      socket?.emit('send-msg', 6546);
+    }
+  }, [socket]);
 
   return (
     <>
@@ -44,7 +53,7 @@ const ChatWindow: FC<Props> = ({ chat }) => {
         ))}
       </div>
       <div className='w-full h-16 bg-dark sticky bottom-0 flex justify-center px-5 py-3'>
-        <ChatInput />
+        <ChatInput socket={socket} />
       </div>
     </>
   );

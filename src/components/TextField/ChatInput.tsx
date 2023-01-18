@@ -1,10 +1,11 @@
-import React, { KeyboardEvent } from 'react';
+import React, { FC, KeyboardEvent } from 'react';
 import * as yup from 'yup';
 import { FormikProvider, useFormik } from 'formik';
 import TextArea from '../FormField/TextArea';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { sendMessageAsync } from '../../app/modules/chat/actions';
 import { selectActiveChat } from '../../app/modules/chat/selectors';
+import { Socket } from 'socket.io-client';
 
 const MASSAGE_NAME = 'message';
 
@@ -16,7 +17,11 @@ export interface UserMessage {
   message: string;
 }
 
-const ChatInput = () => {
+interface Props {
+  socket: Socket | null;
+}
+
+const ChatInput: FC<Props> = ({ socket }) => {
   const dispatch = useAppDispatch();
 
   const chat = useAppSelector(selectActiveChat);

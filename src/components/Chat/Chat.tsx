@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
   selectChat,
   selectIsLoadingMessages,
@@ -8,8 +8,13 @@ import Default from './template/Default';
 import Loader from '../Skeleton/Loader';
 import { LOADER_SIZES } from '../Skeleton/constants';
 import ChatWindow from './template/ChatWindow';
+import { Socket } from 'socket.io-client';
 
-const Chat = () => {
+interface Props {
+  socket: Socket | null;
+}
+
+const Chat: FC<Props> = ({ socket }) => {
   const chat = useAppSelector(selectChat);
   const isLoading = useAppSelector(selectIsLoadingMessages);
 
@@ -22,7 +27,7 @@ const Chat = () => {
           <Loader size={LOADER_SIZES.L} />
         </div>
       ) : (
-        <ChatWindow chat={chat} />
+        <ChatWindow chat={chat} socket={socket} />
       )}
     </div>
   );
