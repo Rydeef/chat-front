@@ -51,8 +51,6 @@ export const sendMessageAsync = createAsyncThunk(
     try {
       const { data } = await instance.post(`/messages`, values);
 
-      console.log(data);
-
       return data;
     } catch (e: any) {
       if (e.status === 200) return e.data;
