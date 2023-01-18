@@ -1,28 +1,24 @@
 import React, { FC } from 'react';
-import { Chat } from '../../constants/types';
-import Avatar from '../Avatar';
+import Avatar from '../Avatar/Avatar';
+import { ChatType } from './types';
 
 interface Props {
-  messageItems: Chat[] | null;
-  onClickItem: (id: string) => void;
+  messageItems: ChatType[] | null;
+  onClickItem: (chat: ChatType) => void;
 }
 
 const ChatItem: FC<Props> = ({ messageItems, onClickItem }) => {
   return (
     <>
-      {messageItems?.map(({ color, title, time, lastMessage, id }) => (
+      {messageItems?.map((chat) => (
         <div
-          key={id}
+          key={chat._id}
           className='w-80 flex items-center bg-dark px-4 py-5 my-3 rounded cursor-pointer '
-          onClick={() => onClickItem(id)}
+          onClick={() => onClickItem(chat)}
         >
-          <Avatar titleChat={title} color={color} />
+          <Avatar titleChat={chat.userName} color={chat.avatarColor} />
           <div className='w-full flex flex-col gap-3 ml-5 truncate'>
-            <div className='flex justify-between'>
-              <span className='font-bold'>{title}</span>
-              <span className='text-sm'>{time}</span>
-            </div>
-            <span className='text-gray-2'>{lastMessage}</span>
+            <span className='font-bold'>{chat.userName}</span>
           </div>
         </div>
       ))}

@@ -6,14 +6,16 @@ import { ReactComponent as Logo } from '../assets/logo.svg';
 import Button from '../components/Button/Button';
 import { Input } from '../components/FormField/Input';
 import { history } from '../services/history';
+import { useAppDispatch } from '../app/hooks';
+import { authUserAsync } from '../app/modules/auth/actions';
 
 interface LoginFormValues {
-  username?: string;
-  password?: string;
+  userName: string;
+  password: string;
 }
 
 const VALIDATION_SCHEMA = yup.object().shape({
-  username: yup.string().required('Required'),
+  userName: yup.string().required('Required'),
   password: yup
     .string()
     .required('Required')
@@ -22,21 +24,21 @@ const VALIDATION_SCHEMA = yup.object().shape({
 });
 
 const Login = () => {
-  const onSubmit = (values: LoginFormValues) => {};
+  const dispatch = useAppDispatch();
+
+  const onSubmit = (values: LoginFormValues) => {
+    dispatch(authUserAsync(values));
+  };
 
   const formik = useFormik({
     initialValues: {
-      username: '',
+      userName: '',
       password: '',
     },
     validateOnChange: true,
     validationSchema: VALIDATION_SCHEMA,
     onSubmit,
   });
-
-  const login = () => {
-    console.log(formik.values);
-  };
 
   const redirectRegister = () => {
     history.push('/register');
@@ -50,13 +52,12 @@ const Login = () => {
             <Logo />
             Talk-on
           </div>
-          <Input name='username' placeholder='Login' />
+          <Input name='userName' placeholder='Login' />
           <Input name='password' placeholder='Enter password' />
           <div className='flex w-full mt-9'>
             <Button
               type='submit'
               color='primary'
-              onClick={login}
               className='mr-4 w-full text-sm'
             >
               Login

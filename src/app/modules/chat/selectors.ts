@@ -3,9 +3,19 @@ import { RootState } from '../../store';
 
 export const selectChatState = (state: RootState) => state.chat;
 
-export const selectIsLoadingChat = createSelector(
+export const selectIsLoadingMessages = createSelector(
   selectChatState,
-  (state) => state.isLoading
+  (state) => state.isLoadingMessages
+);
+
+export const selectIsLoadingList = createSelector(
+  selectChatState,
+  (state) => state.isLoadingList
+);
+
+export const selectActiveChat = createSelector(
+  selectChatState,
+  (state) => state.activeChat
 );
 
 export const selectChat = createSelector(

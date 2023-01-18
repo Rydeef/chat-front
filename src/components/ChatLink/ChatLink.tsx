@@ -1,38 +1,43 @@
-import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { getChatAsync, getChatList } from "../../app/modules/chat/actions";
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
-  selectChat,
+  getChatAsync,
+  getChatListAsync,
+  setActiveChat,
+} from '../../app/modules/chat/actions';
+import {
   selectChatList,
-  selectIsLoadingChat,
-} from "../../app/modules/chat/selectors";
-import Loader from "../Skeleton/Loader";
-import LoaderChatItem from "../Skeleton/LoaderChatItem";
-import ChatItem from "./ChatItem";
+  selectIsLoadingList,
+} from '../../app/modules/chat/selectors';
+import Loader from '../Skeleton/Loader';
+import LoaderChatItem from '../Skeleton/LoaderChatItem';
+import ChatItem from './ChatItem';
+import { ChatType } from './types';
 
 const ChatLink = () => {
   const dispatch = useAppDispatch();
 
   const chatList = useAppSelector(selectChatList);
-  const Loading = useAppSelector(selectIsLoadingChat);
+  const isLoading = useAppSelector(selectIsLoadingList);
 
   useEffect(() => {
-    dispatch(getChatList());
+    dispatch(getChatListAsync());
   }, [dispatch]);
 
-  const onClickItem = (id: string) => {
-    console.log(id);
-
-    dispatch(getChatAsync(id));
+  const onClickItem = (chat: ChatType) => {
+    dispatch(setActiveChat(chat));
+    dispatch(getChatAsync({ id: chat._id }));
   };
 
-  return Loading ? (
-    <div className="flex flex-col justify-center items-center">
+  if (!isLoading) {
+    return <ChatItem onClickItem={onClickItem} messageItems={chatList} />;
+  }
+
+  return (
+    <div className='flex flex-col justify-center items-center'>
       <LoaderChatItem />
       <Loader />
     </div>
-  ) : (
-    <ChatItem onClickItem={onClickItem} messageItems={chatList} />
   );
 };
 

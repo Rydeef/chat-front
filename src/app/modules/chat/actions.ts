@@ -1,137 +1,46 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../services/axios';
-import { AxiosRequestConfig } from 'axios';
-
-const MOCK_MESSAGE = [{
-  id: '1',
-  data: {
-    title: 'Ya pidoras',
-    color: 'bg-[#645CAA]',
-  },
-  messages: [
-    {
-      id: '1A',
-      userName: 'User',
-      message: 'Idi nahui',
-      time: '00:00',
-    },
-  ],
-},
-{
-  id: '2',
-  data: {
-    title: 'Mi tupie',
-    color: 'bg-[#827397]',
-  },
-  messages: [
-    {
-      userName: 'User',
-      messages: [
-        {
-          id: '1B',
-          userName: 'User',
-          message: 'Idi nahui',
-          time: '00:01',
-        },
-        {
-          id: '2B',
-          userName: 'User2',
-          message: 'Sam idi',
-          time: '00:02',
-        },
-      ],
-    },
-  ],
-},
-{
-  id: '3',
-  data: {
-    title: 'PALITEH',
-    color: 'bg-[#FFB26B]',
-  },
-  messages: [
-    {
-      userName: 'User',
-      messages: [
-        {
-          id: '1C',
-          userName: 'User',
-          message: 'Idi nahui',
-          time: '00:01',
-        },
-        {
-          id: '2C',
-          userName: 'User2',
-          message: 'Sam idi',
-          time: '00:02',
-        },
-        {
-          id: '3C',
-          userName: 'User',
-          message: 'Net ti idi',
-          time: '00:01',
-        },
-        {
-          id: '4C',
-          userName: 'User2',
-          message: ':c',
-          time: '00:02',
-        },
-      ],
-    },
-  ],
-},]
+import { ActiveChat } from './types';
 
 export const SELECT_CHAT_SLICE_NAME = 'chat';
 export const CHAT_LIST_SLICE_NAME = 'chatList';
+export const SEND_MESSAGE_SLICE_NAME = 'message';
+
+export const setActiveChat = createAction(
+  `${CHAT_LIST_SLICE_NAME}`,
+  (values: ActiveChat) => ({
+    payload: values,
+  })
+);
 
 export const getChatAsync = createAsyncThunk(
   `${SELECT_CHAT_SLICE_NAME}`,
-  async (values : string ) => {
+  async ({ id }: { id: string }) => {
     try {
-      //const { data } = await instance.get('/...', values);
-      
-      return MOCK_MESSAGE.filter((elem)=> elem.id === values)
-    } catch (e) {
-      console.log(e);
+      const { data } = await instance.get(`/messages/${id}`);
+
+      console.log(data);
+
+      return data;
+    } catch (e: any) {
+      if (e.status === 200) return e.peyload;
+      return e;
     }
   }
 );
 
-export const getChatList = createAsyncThunk(
+export const getChatListAsync = createAsyncThunk(
   `${CHAT_LIST_SLICE_NAME}`,
-  async (values) => {
+  async () => {
     try {
-      // const { data } = await instance.get('/...', values);
+      const { data } = await instance.get('/auth/allusers');
 
-      return [
-        {
-          id: '1',
-          title: 'Ya pidoras',
-          lastMessage: 'Da',
-          color: 'bg-[#645CAA]',
-          time: '00:13',
-          avatar: '',
-        },
-        {
-          id: '2',
-          title: 'Mi tupie',
-          lastMessage: 'adhfsdufhsdifusdfsd',
-          color: 'bg-[#827397]',
-          time: '00:20',
-          avatar: '',
-        },
-        {
-          id: '3',
-          title: 'PALITEH',
-          lastMessage: 'Vi edete na Bahmut',
-          color: 'bg-[#FFB26B]',
-          time: '00:11',
-          avatar: '1',
-        },
-      ];
-    } catch (e) {
-      console.log(e);
+      return data;
+    } catch (e: any) {
+      if (e.status === 200) {
+        return e.data;
+      }
+      return e;
     }
   }
 );

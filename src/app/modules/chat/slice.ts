@@ -1,10 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { SELECT_CHAT_SLICE_NAME } from './actions';
-import { chatReducer } from './reducer';
+import {
+  getChatMessagesReducer,
+  getChatListReducer,
+  setActiveChatReducer,
+} from './reducer';
 import { ChatState } from './types';
 
 const initialState: ChatState = {
-  isLoading: true,
+  isLoadingMessages: true,
+  isLoadingList: true,
   selectedChat: null,
   chatList: null,
 };
@@ -14,6 +19,8 @@ export const { reducer: chat } = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    chatReducer(builder);
+    getChatMessagesReducer(builder);
+    getChatListReducer(builder);
+    setActiveChatReducer(builder);
   },
 });

@@ -1,37 +1,51 @@
 import { ActionReducerMapBuilder } from '@reduxjs/toolkit';
-import { getChatAsync, getChatList } from './actions';
+import { getChatAsync, getChatListAsync, setActiveChat } from './actions';
 import { ChatState } from './types';
 
-export const chatReducer = (builder: ActionReducerMapBuilder<ChatState>) => {
+export const getChatMessagesReducer = (
+  builder: ActionReducerMapBuilder<ChatState>
+) => {
   builder.addCase(getChatAsync.fulfilled, (state, action) => {
-    state.isLoading = false;
-    console.log(action);
-    
+    state.isLoadingMessages = false;
     state.selectedChat = action.payload;
   });
 
   builder.addCase(getChatAsync.pending, (state) => {
-    state.isLoading = true;
-    state.selectedChat = null;
+    state.isLoadingMessages = true;
+    state.selectedChat = undefined;
   });
 
   builder.addCase(getChatAsync.rejected, (state) => {
-    state.isLoading = false;
+    state.isLoadingMessages = false;
     state.selectedChat = null;
   });
-  //chat-list
-  builder.addCase(getChatList.fulfilled, (state, action) => {
-    state.isLoading = false;
+};
+
+export const getChatListReducer = (
+  builder: ActionReducerMapBuilder<ChatState>
+) => {
+  builder.addCase(getChatListAsync.fulfilled, (state, action) => {
+    state.isLoadingList = false;
     state.chatList = action.payload!;
   });
 
-  builder.addCase(getChatList.pending, (state) => {
-    state.isLoading = true;
+  builder.addCase(getChatListAsync.pending, (state) => {
+    state.isLoadingList = true;
     state.chatList = null;
   });
 
-  builder.addCase(getChatList.rejected, (state) => {
-    state.isLoading = false;
+  builder.addCase(getChatListAsync.rejected, (state) => {
+    state.isLoadingList = false;
     state.chatList = null;
+  });
+};
+
+export const setActiveChatReducer = (
+  builder: ActionReducerMapBuilder<ChatState>
+) => {
+  builder.addCase(setActiveChat, (state, action) => {
+    console.log(action.payload);
+
+    state.activeChat = action.payload;
   });
 };

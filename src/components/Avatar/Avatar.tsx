@@ -4,28 +4,23 @@ import { AVATAR_SIZES } from './constants';
 import Img from './pict.jpg';
 
 interface Props {
-  titleChat: string;
-  color: string;
+  titleChat?: string;
+  color?: string;
   size?: AVATAR_SIZES;
-  imgUser?: string;
 }
 
 const Avatar: FC<Props> = ({
-  titleChat,
+  titleChat = '',
   color,
   size = AVATAR_SIZES.S,
-  imgUser,
 }) => {
   const defaultClassName: string = cn(
     'rounded-full flex items-center justify-center pointer-events-none select-none shrink-0',
-    color,
     size
   );
 
-  if (imgUser) return <img src={Img} className={defaultClassName} alt='' />;
-
   return (
-    <div className={defaultClassName}>
+    <div className={defaultClassName} style={{ backgroundColor: `#${color}` }}>
       <span className='text-center'>{titleChat[0]}</span>
     </div>
   );

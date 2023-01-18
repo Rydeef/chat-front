@@ -1,7 +1,8 @@
 import React, { FC, ReactNode, useEffect } from 'react';
 import { useModal } from '../../hooks/useModal';
-import Header from '../Header';
-import ModalWindow from '../ModalWindow';
+import { history } from '../../services/history';
+import Header from '../Header/Header';
+import ModalWindow from '../ModalWindow/ModalWindow';
 import CreateChat from '../ModalWindow/template/CreateChat';
 
 interface IProps {
@@ -12,8 +13,8 @@ const PageWrapper: FC<IProps> = ({ children }) => {
   const { isOpen, closeModal, openModal } = useModal();
 
   useEffect(() => {
-    if (!localStorage.getItem('talkaccesstoken')) {
-      // history.push('/login')
+    if (!localStorage.getItem('token')) {
+      history.push('/login');
     }
   }, []);
 

@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { history } from './history';
 
 const addAuthToken = (config: AxiosRequestConfig) => {
-  const token = localStorage.get('');
+  const token = localStorage.getItem('token');
   if (token) {
     config.headers = {
       Authorization: token,
@@ -25,7 +25,7 @@ const removeAuthToken = (error: AxiosResponse) => {
 };
 
 export const instance = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'http://192.168.1.100:5000/api',
 });
 
 instance.interceptors.request.use(addAuthToken);
