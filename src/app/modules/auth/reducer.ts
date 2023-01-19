@@ -1,5 +1,6 @@
 import { ActionReducerMapBuilder } from '@reduxjs/toolkit';
-import { authUserAsync, registerUserAsync } from './actions';
+import { history } from '../../../services/history';
+import { authUserAsync, registerUserAsync, logOutUserAction } from './actions';
 import { AuthState } from './types';
 
 export const authUserReducer = (
@@ -20,7 +21,11 @@ export const authUserReducer = (
     state.isAuthorized = false;
     state.userData = null;
   });
-  //
+};
+
+export const registerUserReducer = (
+  builder: ActionReducerMapBuilder<AuthState>
+) => {
   builder.addCase(registerUserAsync.fulfilled, (state, action) => {
     state.isLoading = false;
     state.userData = action.payload;
@@ -32,6 +37,18 @@ export const authUserReducer = (
 
   builder.addCase(registerUserAsync.rejected, (state) => {
     state.isLoading = false;
+    state.userData = null;
+  });
+};
+
+export const logOutUserReducer = (
+  builder: ActionReducerMapBuilder<AuthState>
+) => {
+  builder.addCase(logOutUserAction, (state) => {
+    history.push('/login');
+    localStorage.removeItem('token');
+    localStorage.removeItem('userName');
+
     state.userData = null;
   });
 };

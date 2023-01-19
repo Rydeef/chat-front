@@ -1,7 +1,7 @@
 export interface AuthState {
   isLoading: boolean;
   isAuthorized: boolean;
-  userData: null | object;
+  userData: null | UserPayload;
 }
 
 export interface LoginPayload {
@@ -14,4 +14,17 @@ export interface RegisterPayload {
   userName: string;
   password: string;
   confirmPassword: string;
+}
+
+export interface UserPayload {
+  status: boolean;
+  user: UserData;
+  token: string;
+}
+
+interface UserData {
+  avatarColor: string;
+  email: string;
+  password: string;
+  userName: string;
 }
