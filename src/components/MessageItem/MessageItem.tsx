@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
+import date from 'date-and-time';
 
 interface Props {
   userName: string;
@@ -9,6 +10,10 @@ interface Props {
 }
 
 const MessageItem: FC<Props> = ({ userName, message, time, fromSelf }) => {
+  const now = new Date(time);
+
+  const FORMAT_TIME = date.format(now, 'HH:mm:ss');
+
   return (
     <div
       className={cn('flex justify-between items-center my-1 ', {
@@ -24,7 +29,7 @@ const MessageItem: FC<Props> = ({ userName, message, time, fromSelf }) => {
         <span className='font-bold'>{userName}</span>
         <span>{message}</span>
       </div>
-      <span className='text-gray-0 text-sm'>{time}</span>
+      <span className='text-gray-0 text-sm'>{FORMAT_TIME}</span>
     </div>
   );
 };

@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AUTH_SLICE_NAME } from './actions';
-import { authUserReducer } from './reducer';
+import {
+  authUserReducer,
+  logOutUserReducer,
+  registerUserReducer,
+} from './reducer';
 import { AuthState } from './types';
 
 const initialState: AuthState = {
@@ -15,5 +19,7 @@ export const { reducer: auth } = createSlice({
   reducers: {},
   extraReducers(builder) {
     authUserReducer(builder);
+    registerUserReducer(builder);
+    logOutUserReducer(builder);
   },
 });

@@ -10,7 +10,7 @@ const Home = () => {
   const socket = useRef<Socket | null>(null);
 
   useEffect(() => {
-    socket.current = io('http://192.168.1.100:5000');
+    socket.current = io('http://localhost:5000');
     socket.current.emit('add-user', window.localStorage.getItem('token'));
 
     socket.current.on('msg-recieve', (msg) => {

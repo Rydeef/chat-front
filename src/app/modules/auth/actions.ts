@@ -1,9 +1,11 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../services/axios';
 import { history } from '../../../services/history';
 import { LoginPayload, RegisterPayload } from './types';
 
 export const AUTH_SLICE_NAME = 'auth';
+
+export const logOutUserAction = createAction(`${AUTH_SLICE_NAME}/logOut`);
 
 export const authUserAsync = createAsyncThunk(
   `${AUTH_SLICE_NAME}/login`,
@@ -19,8 +21,10 @@ export const authUserAsync = createAsyncThunk(
       return data?.user;
     } catch (e: any) {
       if (e.data.status) {
-        history.push('/');
         window.localStorage.setItem('token', e.data?.token);
+        window.localStorage.setItem('userName', e.data?.user.userName);
+
+        history.push('/');
 
         return e.data;
       }
