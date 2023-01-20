@@ -45,9 +45,10 @@ export const logOutUserReducer = (
   builder: ActionReducerMapBuilder<AuthState>
 ) => {
   builder.addCase(logOutUserAction, (state) => {
-    history.push('/login');
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
+
+    history.push('/login');
 
     state.userData = null;
   });
