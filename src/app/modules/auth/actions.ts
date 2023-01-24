@@ -13,21 +13,13 @@ export const authUserAsync = createAsyncThunk(
     try {
       const { data } = await instance.post('/auth/login', values);
 
-      console.log(data.token);
-
       window.localStorage.setItem('token', data?.token);
+      window.localStorage.setItem('userName', data?.user.userName);
+
       history.push('/home');
 
       return data?.user;
     } catch (e: any) {
-      if (e.data.status) {
-        window.localStorage.setItem('token', e.data?.token);
-        window.localStorage.setItem('userName', e.data?.user.userName);
-
-        history.push('/');
-
-        return e.data;
-      }
       return e;
     }
   }
@@ -43,10 +35,6 @@ export const registerUserAsync = createAsyncThunk(
 
       return data;
     } catch (e: any) {
-      if (e.data.status) {
-        history.push('/login');
-        return e.data;
-      }
       return e;
     }
   }
