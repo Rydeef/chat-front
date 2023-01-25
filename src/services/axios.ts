@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import { history } from './history';
 
 const addAuthToken = (config: AxiosRequestConfig) => {
@@ -11,9 +11,9 @@ const addAuthToken = (config: AxiosRequestConfig) => {
   return config;
 };
 
-const removeAuthToken = (error: AxiosResponse) => {
-  if ((error as unknown as AxiosError).response?.status === 401) {
-    localStorage.remove('');
+export const removeAuthToken = (error: AxiosError) => {
+  if (error?.response?.status === 401) {
+    localStorage.remove('token');
     if (
       !history.location.pathname.includes('login') ||
       !history.location.pathname.includes('register')
@@ -29,4 +29,5 @@ export const instance = axios.create({
 });
 
 instance.interceptors.request.use(addAuthToken);
-instance.interceptors.response.use(removeAuthToken);
+
+instance.interceptors.response.use(undefined, removeAuthToken);

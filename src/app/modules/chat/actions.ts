@@ -19,11 +19,8 @@ export const getChatAsync = createAsyncThunk(
     try {
       const { data } = await instance.get(`/messages/${id}`);
 
-      console.log(data);
-
       return data;
     } catch (e: any) {
-      if (e.status === 200) return e.data;
       return e;
     }
   }
@@ -53,7 +50,6 @@ export const sendMessageAsync = createAsyncThunk(
 
       return data;
     } catch (e: any) {
-      if (e.status === 200) return e.data;
       return e;
     }
   }
