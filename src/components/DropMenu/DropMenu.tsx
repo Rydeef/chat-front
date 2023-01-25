@@ -8,11 +8,7 @@ interface Props {
 const DropMenu: FC<Props> = ({ isOpen }) => {
   if (!isOpen) return null;
 
-  return (
-    <>
-      <UserMenu />
-    </>
-  );
+  return <UserMenu />;
 };
 
 export default DropMenu;
