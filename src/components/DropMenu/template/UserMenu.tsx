@@ -7,6 +7,8 @@ import { ReactComponent as ExitSvg } from '../../../assets/exit.svg';
 import { ReactComponent as SunSvg } from '../../../assets/sun.svg';
 import { ReactComponent as MoonSvg } from '../../../assets/moon.svg';
 
+type ThemeType = 'light' | 'dark';
+
 const STYLE_MENU_ITEM =
   'flex fill-[#C6C5C5] items-center px-4 py-2 rounded-full cursor-pointer duration-100 hover:bg-gray-2 hover:text-white hover:fill-[#D9D9D9] select-none';
 
@@ -17,7 +19,7 @@ const UserMenu = () => {
 
   const dispatch = useAppDispatch();
 
-  const switchTheme = (theme: string) => setCurrentTheme(theme);
+  const switchTheme = (theme: ThemeType) => () => setCurrentTheme(theme);
 
   const logOut = () => {
     dispatch(logOutUserAction());
@@ -37,7 +39,7 @@ const UserMenu = () => {
                     currentTheme === 'light',
                 }
               )}
-              onClick={() => switchTheme('light')}
+              onClick={switchTheme('light')}
             >
               <SunSvg className='w-6 shrink-0' />
               <div className='text-center w-full'>light</div>
@@ -50,7 +52,7 @@ const UserMenu = () => {
                     currentTheme === 'dark',
                 }
               )}
-              onClick={() => switchTheme('dark')}
+              onClick={switchTheme('dark')}
             >
               <div className='text-center w-full'>dark</div>
               <MoonSvg className='w-6 shrink-0' />
