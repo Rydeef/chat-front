@@ -17,7 +17,7 @@ const ModalWindow: FC<Props> = ({ children, isOpen, onClose }) => {
   return (
     <Portal>
       <div
-        className='w-screen h-screen bg-black/80 fixed top-0 left-0'
+        className='w-screen h-screen bg-black/80 fixed top-0 left-0 z-20'
         onClick={onClose}
       >
         <div
