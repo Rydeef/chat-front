@@ -5,7 +5,7 @@ import PageWrapper from '../components/PageWrapper/PageWrapper';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
-import Setting from '../pages/Setting';
+import Settings from '../pages/Settings';
 import AppRoute from './AppRoute';
 
 const layoutRoutes: { element: ReactNode; path: PATHNAMES }[] = [
@@ -14,7 +14,7 @@ const layoutRoutes: { element: ReactNode; path: PATHNAMES }[] = [
     path: PATHNAMES.CHATS,
   },
   {
-    element: <Setting />,
+    element: <Settings />,
     path: PATHNAMES.SETTING,
   },
 ];

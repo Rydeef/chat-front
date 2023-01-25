@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { history } from '../../services/history';
 import { useAppDispatch } from '../../app/hooks';
 import { logOutUserAction } from '../../app/modules/auth/actions';
 
