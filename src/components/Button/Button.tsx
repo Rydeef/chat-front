@@ -4,7 +4,7 @@ import cn from 'classnames';
 interface Props {
   children: ReactNode;
   className?: string;
-  color: 'primary' | 'secondary';
+  color: 'primary' | 'secondary' | 'red' | 'green' | 'transparent';
   onClick?: VoidFunction;
   type?: 'submit' | 'button';
 }
@@ -26,6 +26,9 @@ const Button: FC<Props> = ({
         {
           'bg-accent': color === 'primary',
           'bg-gray-2': color === 'secondary',
+          'bg-[#CD4343]': color === 'red',
+          'bg-[#39C198]': color === 'green',
+          'bg-transparent': color === 'transparent',
         }
       )}
     >
