@@ -2,7 +2,7 @@ import React from 'react';
 import { history } from '../services/history';
 import { useAppDispatch } from '../app/hooks';
 import { logOutUserAction } from '../app/modules/auth/actions';
-import FormChangeName from '../components/FormField/FormChangeName';
+import FormChangeName from '../components/FormField/ChangeName';
 import ChangePassword from '../components/FormField/ChangePassword';
 import { ReactComponent as ArrowBackSVG } from '../assets/arrow-back.svg';
 
