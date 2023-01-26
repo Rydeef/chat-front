@@ -1,6 +1,7 @@
 export enum PATHNAMES {
-  CHATS = "/",
-  LOGIN = "/login",
-  REGISTER = "/register",
-  NOT_FOUND = "*",
+  CHATS = '/home',
+  SETTING = '/settings',
+  LOGIN = '/login',
+  REGISTER = '/register',
+  NOT_FOUND = '*',
 }
