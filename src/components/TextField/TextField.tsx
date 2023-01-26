@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 import cn from 'classnames';
-import { ReactComponent as EyeSVG } from '../../assets/eye.svg';
+import { ReactComponent as Eye1SVG } from '../../assets/eye-1.svg';
+import { ReactComponent as Eye2SVG } from '../../assets/eye-2.svg';
 
 interface Props {
   type?: 'text' | 'password';
@@ -23,7 +24,7 @@ const TextField: FC<Props> = ({
   const inputStyle = cn(
     'w-full bg-gray-0 text-gray-3 outline-none p-2 rounded-md text-base placeholder:text-gray-1 duration-300 hover:bg-gray-2 focus:bg-gray-2',
     className,
-    { 'pr-14': type === 'password' }
+    { 'pr-10': type === 'password' }
   );
 
   const switchType = () =>
@@ -39,10 +40,16 @@ const TextField: FC<Props> = ({
         {...props}
       />
       {type === 'password' && (
-        <EyeSVG
-          className='absolute top-1/2 -translate-y-1/2 right-3 w-10 duration-200 fill-white/80 hover:fill-white cursor-pointer'
+        <div
+          className='absolute p-2 flex items-center justify-center top-0 right-0 w-10 h-full duration-300 opacity-80 hover:opacity-100 cursor-pointer'
           onClick={switchType}
-        />
+        >
+          {typeInput === 'password' ? (
+            <Eye1SVG className='w-full h-full' />
+          ) : (
+            <Eye2SVG className='w-full h-full' />
+          )}
+        </div>
       )}
     </div>
   );
