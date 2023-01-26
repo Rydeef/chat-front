@@ -52,7 +52,7 @@ const Login = () => {
             Talk-on
           </div>
           <Input name='userName' placeholder='Login' />
-          <Input name='password' placeholder='Enter password' />
+          <Input type='password' name='password' placeholder='Enter password' />
           <div className='flex w-full mt-9'>
             <Button
               type='submit'
