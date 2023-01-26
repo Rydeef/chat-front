@@ -4,6 +4,7 @@ import { useField } from 'formik';
 import TextField from '../TextField/TextField';
 
 interface Props {
+  type?: 'text' | 'password';
   placeholder?: string;
   className?: string;
   isDisabled?: boolean;

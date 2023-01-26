@@ -1,7 +1,6 @@
 import { FormikProvider, useFormik } from 'formik';
 import * as yup from 'yup';
 import React from 'react';
-
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import Button from '../components/Button/Button';
 import { Input } from '../components/FormField/Input';
