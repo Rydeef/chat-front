@@ -20,8 +20,8 @@ const Settings = () => {
   };
 
   return (
-    <div className='w-full flex justify-center mt-10'>
-      <div className='bg-transparent py-10 px-20 rounded-md'>
+    <div className='w-full h-[800px] flex justify-center mt-10'>
+      <div className='bg-transparent py-10 px-20 rounded-md overflow-y-auto'>
         <div className='flex relative justify-center'>
           <Avatar color='827397' titleChat='T' size={AVATAR_SIZES.L} />
           <ArrowBackSVG
