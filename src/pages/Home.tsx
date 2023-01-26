@@ -25,7 +25,7 @@ const Home = () => {
   }, [currentSendingMessage]);
 
   return (
-    <div className='flex'>
+    <div className='flex mt-8'>
       <Sidebar />
       <Chat socket={socket.current} />
     </div>
