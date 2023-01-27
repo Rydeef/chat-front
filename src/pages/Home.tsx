@@ -1,13 +1,25 @@
 import React, { useEffect, useRef } from 'react';
 import { io, Socket } from 'socket.io-client';
-import { useAppSelector } from '../app/hooks';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { selectUserData } from '../app/modules/auth/selectors';
 import { selectCurrentMessage } from '../app/modules/chat/selectors';
+import { getCurrentUser } from '../app/modules/currentUser/actions';
 import Chat from '../components/Chat/Chat';
 import Sidebar from '../components/Sidebar/Sidebar';
 
 const Home = () => {
+  const dispatch = useAppDispatch();
+
   const currentSendingMessage = useAppSelector(selectCurrentMessage);
   const socket = useRef<Socket | null>(null);
+
+  const userData = useAppSelector(selectUserData);
+
+  console.log(userData);
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  });
 
   useEffect(() => {
     socket.current = io('http://localhost:5000');
