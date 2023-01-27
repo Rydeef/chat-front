@@ -34,9 +34,6 @@ export const getChatListAsync = createAsyncThunk(
 
       return data;
     } catch (e: any) {
-      if (e.status === 200) {
-        return e.data;
-      }
       return e;
     }
   }

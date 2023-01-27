@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { io, Socket } from 'socket.io-client';
+import React from 'react';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import AppRoutes from './router/Router';
 import { history } from './services/history';
