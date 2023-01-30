@@ -7,7 +7,7 @@ export const getCurrentUser = createAsyncThunk(
   `${CURRENT_USER_SLICE_NAME}`,
   async () => {
     try {
-      const { data } = await instance.get(`/user`);
+      const { data } = await instance.get(`/auth/user`);
 
       return data;
     } catch (e: any) {

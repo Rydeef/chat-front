@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import cn from 'classnames';
 import { useAppDispatch } from '../../../app/hooks';
 import { logOutUserAction } from '../../../app/modules/auth/actions';
@@ -9,12 +9,14 @@ import { ReactComponent as MoonSvg } from '../../../assets/moon.svg';
 
 type ThemeType = 'light' | 'dark';
 
+interface Props {
+  userName?: string;
+}
+
 const STYLE_MENU_ITEM =
   'flex fill-[#C6C5C5] items-center px-4 py-2 rounded-full cursor-pointer duration-100 hover:bg-gray-2 hover:text-white hover:fill-[#D9D9D9] select-none';
 
-const UserMenu = () => {
-  const userName = localStorage.getItem('userName');
-
+const UserMenu: FC<Props> = ({ userName }) => {
   const [currentTheme, setCurrentTheme] = useState<string>('light');
 
   const dispatch = useAppDispatch();

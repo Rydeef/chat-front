@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { selectUserData } from '../app/modules/auth/selectors';
 import { selectCurrentMessage } from '../app/modules/chat/selectors';
 import { getCurrentUser } from '../app/modules/currentUser/actions';
 import Chat from '../components/Chat/Chat';
@@ -12,10 +11,6 @@ const Home = () => {
 
   const currentSendingMessage = useAppSelector(selectCurrentMessage);
   const socket = useRef<Socket | null>(null);
-
-  const userData = useAppSelector(selectUserData);
-
-  console.log(userData);
 
   useEffect(() => {
     dispatch(getCurrentUser());
