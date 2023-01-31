@@ -6,6 +6,7 @@ import { ReactComponent as SettingsSvg } from '../../../assets/settings.svg';
 import { ReactComponent as ExitSvg } from '../../../assets/exit.svg';
 import { ReactComponent as SunSvg } from '../../../assets/sun.svg';
 import { ReactComponent as MoonSvg } from '../../../assets/moon.svg';
+import { Link } from 'react-router-dom';
 
 type ThemeType = 'light' | 'dark';
 
@@ -62,7 +63,9 @@ const UserMenu: FC<Props> = ({ userName }) => {
           </div>
           <div className={STYLE_MENU_ITEM}>
             <SettingsSvg className='shrink-0' />
-            <div className='text-xl text-center w-full'>Settings</div>
+            <Link to='/settings' className='text-xl text-center w-full'>
+              Settings
+            </Link>
           </div>
         </div>
         <div onClick={logOut} className={STYLE_MENU_ITEM}>

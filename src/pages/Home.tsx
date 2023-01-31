@@ -13,10 +13,6 @@ const Home = () => {
   const socket = useRef<Socket | null>(null);
 
   useEffect(() => {
-    dispatch(getCurrentUser());
-  });
-
-  useEffect(() => {
     socket.current = io('http://localhost:5000');
     socket.current.emit('add-user', window.localStorage.getItem('token'));
 
@@ -30,6 +26,10 @@ const Home = () => {
       socket.current?.emit('send-msg', currentSendingMessage);
     }
   }, [currentSendingMessage]);
+
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
 
   return (
     <div className='flex mt-8'>

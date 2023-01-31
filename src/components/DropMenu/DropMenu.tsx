@@ -8,11 +8,11 @@ interface Props {
 }
 
 const DropMenu: FC<Props> = ({ isOpen }) => {
-  const userData = useAppSelector(selectUserData);
+  const { userName } = useAppSelector(selectUserData) || {};
 
   if (!isOpen) return null;
 
-  return <UserMenu userName={userData?.userName} />;
+  return <UserMenu userName={userName} />;
 };
 
 export default DropMenu;

@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Header: FC<Props> = ({ openModal, toggleClickAvatar }) => {
-  const userData = useAppSelector(selectUserData);
+  const { userName, avatarColor } = useAppSelector(selectUserData) || {};
 
   return (
     <div className='w-full flex px-7 justify-between items-center bg-dark rounded-b-lg'>
@@ -19,8 +19,8 @@ const Header: FC<Props> = ({ openModal, toggleClickAvatar }) => {
       <div className='flex w-32 justify-between items-center'>
         <CreateChat className='cursor-pointer fill-white' onClick={openModal} />
         <Avatar
-          color={userData?.avatarColor}
-          titleChat={userData?.userName}
+          color={avatarColor}
+          titleChat={userName}
           onClick={toggleClickAvatar}
         />
       </div>
