@@ -14,7 +14,6 @@ export const authUserAsync = createAsyncThunk(
       const { data } = await instance.post('/auth/login', values);
 
       window.localStorage.setItem('token', data?.token);
-      window.localStorage.setItem('userName', data?.user.userName);
 
       history.push('/home');
 
