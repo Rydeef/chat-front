@@ -46,7 +46,6 @@ export const logOutUserReducer = (
 ) => {
   builder.addCase(logOutUserAction, (state) => {
     localStorage.removeItem('token');
-    localStorage.removeItem('userName');
 
     history.push('/login');
 
