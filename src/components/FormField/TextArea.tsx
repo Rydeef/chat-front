@@ -1,12 +1,12 @@
-import React, { FC, KeyboardEvent, useState } from 'react';
+import React, { FC, KeyboardEvent, useRef, useState } from 'react';
 import { useField } from 'formik';
-import { ReactComponent as SendMessageSVG } from '../../assets/message.svg';
-import { ReactComponent as SmileSVG } from '../../assets/smile.svg';
 import EmojiPicker, {
   EmojiClickData,
   EmojiStyle,
   Theme,
 } from 'emoji-picker-react';
+import { ReactComponent as SendMessageSVG } from '../../assets/message.svg';
+import { ReactComponent as SmileSVG } from '../../assets/smile.svg';
 
 interface Props {
   name: string;
@@ -25,10 +25,16 @@ const TextArea: FC<Props> = ({
 }) => {
   const [{ value, ...field }, , { setValue }] = useField(name);
 
+  const textAr = useRef<HTMLTextAreaElement>(null);
+
   const [emojiBar, setEmojiBar] = useState<boolean>(false);
 
-  const selectEmoji = (emojiData: EmojiClickData) =>
-    setValue(value + emojiData.emoji);
+  const selectEmoji = (emojiData: EmojiClickData) => {
+    const start = textAr.current?.selectionStart;
+    const end = textAr.current?.selectionEnd;
+
+    setValue(value.slice(0, start) + emojiData.emoji + value.slice(end));
+  };
 
   const toggleClickEmoji = () => setEmojiBar((prev) => !prev);
 
@@ -53,6 +59,7 @@ const TextArea: FC<Props> = ({
         <textarea
           className='w-full h-full resize-none text-black px-3 py-2 rounded focus:outline-0'
           value={value}
+          ref={textAr}
           placeholder={placeholder}
           onKeyDown={sendMessageEnter}
           {...field}
