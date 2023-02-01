@@ -31,6 +31,7 @@ const VALIDATION_SCHEMA = yup.object().shape({
 
 const Register = () => {
   const dispatch = useAppDispatch();
+
   const onSubmit = (values: RegisterFormValues) => {
     dispatch(registerUserAsync(values));
   };

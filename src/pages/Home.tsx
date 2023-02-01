@@ -10,6 +10,7 @@ const Home = () => {
   const dispatch = useAppDispatch();
 
   const currentSendingMessage = useAppSelector(selectCurrentMessage);
+
   const socket = useRef<Socket | null>(null);
 
   useEffect(() => {
