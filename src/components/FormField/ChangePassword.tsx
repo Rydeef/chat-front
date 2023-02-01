@@ -40,7 +40,7 @@ const ChangePassword = () => {
   return (
     <FormikProvider value={formik}>
       <form onSubmit={formik.handleSubmit} className='w-[800px] h-full'>
-        <div className='my-5'>
+        <div className='my-16'>
           <Input name='oldPassword' placeholder='Old Password' />
           <Input name='password' placeholder='Password' />
           <Input name='confirmPassword' placeholder='Confirm password' />
@@ -51,7 +51,7 @@ const ChangePassword = () => {
             <Button
               color='red'
               type='button'
-              onClick={() => formik.resetForm()}
+              onClick={formik.resetForm}
               className='w-[250px]'
             >
               Cancel
