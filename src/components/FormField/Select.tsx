@@ -64,7 +64,7 @@ const SelectComponent: FC<Props> = ({
     (option: SingleValue<Option>) => {
       setValue(option);
     },
-    [value]
+    [setValue]
   );
 
   const showError = Boolean((touched || value) && error);
