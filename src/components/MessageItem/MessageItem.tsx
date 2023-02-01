@@ -12,7 +12,7 @@ interface Props {
 const MessageItem: FC<Props> = ({ userName, message, time, fromSelf }) => {
   const now = new Date(time);
 
-  const FORMAT_TIME = date.format(now, 'HH:mm:ss');
+  const formatTime = date.format(now, 'HH:mm:ss');
 
   return (
     <div
@@ -29,7 +29,7 @@ const MessageItem: FC<Props> = ({ userName, message, time, fromSelf }) => {
         <span className='font-bold'>{userName}</span>
         <span>{message}</span>
       </div>
-      <span className='text-gray-0 text-sm'>{FORMAT_TIME}</span>
+      <span className='text-gray-0 text-sm'>{formatTime}</span>
     </div>
   );
 };
