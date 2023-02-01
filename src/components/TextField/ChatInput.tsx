@@ -1,11 +1,11 @@
 import React, { FC, KeyboardEvent } from 'react';
 import * as yup from 'yup';
+import { Socket } from 'socket.io-client';
 import { FormikProvider, useFormik } from 'formik';
 import TextArea from '../FormField/TextArea';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { sendMessageAsync } from '../../app/modules/chat/actions';
-import { selectActiveChat } from '../../app/modules/chat/selectors';
-import { Socket } from 'socket.io-client';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { sendMessageAsync } from 'app/modules/chat/actions';
+import { selectActiveChat } from 'app/modules/chat/selectors';
 
 const MASSAGE_NAME = 'message';
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { useTheme } from '../../hooks/useTheme';
-import { ReactComponent as SunSVG } from '../../assets/sun.svg';
-import { ReactComponent as MoonSVG } from '../../assets/moon.svg';
+import { useTheme } from 'hooks/useTheme';
+import { ReactComponent as SunSVG } from 'assets/sun.svg';
+import { ReactComponent as MoonSVG } from 'assets/moon.svg';
 
 const SwitchTheme = () => {
   const { theme, toggleTheme } = useTheme();

@@ -22,7 +22,7 @@ const Avatar: FC<Props> = ({
 
   return (
     <div className={defaultClassName} style={{ backgroundColor: `#${color}` }}>
-      <span className='text-center'>{titleChat[0].toUpperCase()}</span>
+      <span className='text-center'>{titleChat[0]}</span>
     </div>
   );
 };

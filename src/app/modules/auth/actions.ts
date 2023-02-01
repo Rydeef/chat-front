@@ -1,6 +1,6 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
-import { instance } from '../../../services/axios';
-import { history } from '../../../services/history';
+import { instance } from 'services/axios';
+import { history } from 'services/history';
 import { LoginPayload, RegisterPayload } from './types';
 
 export const AUTH_SLICE_NAME = 'auth';

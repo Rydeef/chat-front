@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { io, Socket } from 'socket.io-client';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { selectCurrentMessage } from '../app/modules/chat/selectors';
-import { getCurrentUser } from '../app/modules/currentUser/actions';
-import Chat from '../components/Chat/Chat';
-import Sidebar from '../components/Sidebar/Sidebar';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { selectCurrentMessage } from 'app/modules/chat/selectors';
+import { getCurrentUser } from 'app/modules/currentUser/actions';
+import Chat from 'components/Chat/Chat';
+import Sidebar from 'components/Sidebar/Sidebar';
 
 const Home = () => {
   const dispatch = useAppDispatch();

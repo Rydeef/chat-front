@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef } from 'react';
 import { Socket } from 'socket.io-client';
-import MessageItem from '../../MessageItem/MessageItem';
-import ChatInput from '../../TextField/ChatInput';
+import MessageItem from 'components/MessageItem/MessageItem';
+import ChatInput from 'components/TextField/ChatInput';
 import HeaderChat from '../HeaderChat';
 
 interface Messages {

@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
+import { RootState } from 'app/store';
 
 export const selectChatState = (state: RootState) => state.chat;
 
@@ -27,7 +27,6 @@ export const selectChatList = createSelector(
   selectChatState,
   (state) => state.chatList
 );
-
 
 export const selectCurrentMessage = createSelector(
   selectChatState,

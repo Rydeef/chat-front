@@ -1,9 +1,9 @@
 import React from 'react';
-import { AVATAR_SIZES } from '../Avatar/constants';
-import { ReactComponent as SettingSVG } from '../../assets/dots.svg';
-import { useAppSelector } from '../../app/hooks';
-import { selectActiveChat } from '../../app/modules/chat/selectors';
+import { useAppSelector } from 'app/hooks';
+import { ReactComponent as SettingSVG } from 'assets/dots.svg';
+import { selectActiveChat } from 'app/modules/chat/selectors';
 import Avatar from '../Avatar/Avatar';
+import { AVATAR_SIZES } from '../Avatar/constants';
 
 const HeaderChat = () => {
   const { avatarColor, userName } = useAppSelector(selectActiveChat) || {};

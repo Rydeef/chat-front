@@ -1,12 +1,12 @@
 import { FormikProvider, useFormik } from 'formik';
 import * as yup from 'yup';
 import React from 'react';
-import { ReactComponent as Logo } from '../assets/logo.svg';
-import Button from '../components/Button/Button';
-import { Input } from '../components/FormField/Input';
-import { history } from '../services/history';
-import { useAppDispatch } from '../app/hooks';
-import { authUserAsync } from '../app/modules/auth/actions';
+import { ReactComponent as Logo } from 'assets/logo.svg';
+import Button from 'components/Button/Button';
+import { Input } from 'components/FormField/Input';
+import { history } from 'services/history';
+import { useAppDispatch } from 'app/hooks';
+import { authUserAsync } from 'app/modules/auth/actions';
 
 interface LoginFormValues {
   userName: string;

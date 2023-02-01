@@ -1,12 +1,12 @@
 import React from 'react';
-import { history } from '../services/history';
-import { useAppDispatch } from '../app/hooks';
-import { logOutUserAction } from '../app/modules/auth/actions';
-import FormChangeName from '../components/FormField/ChangeName';
-import ChangePassword from '../components/FormField/ChangePassword';
-import { ReactComponent as ArrowBackSVG } from '../assets/arrow-back.svg';
-import Avatar from '../components/Avatar/Avatar';
-import { AVATAR_SIZES } from '../components/Avatar/constants';
+import { history } from 'services/history';
+import { useAppDispatch } from 'app/hooks';
+import { logOutUserAction } from 'app/modules/auth/actions';
+import FormChangeName from 'components/FormField/ChangeName';
+import ChangePassword from 'components/FormField/ChangePassword';
+import { ReactComponent as ArrowBackSVG } from 'assets/arrow-back.svg';
+import Avatar from 'components/Avatar/Avatar';
+import { AVATAR_SIZES } from 'components/Avatar/constants';
 
 const Settings = () => {
   const dispatch = useAppDispatch();

@@ -1,5 +1,10 @@
 import React, { useCallback, FC } from 'react';
-import Select, { Options, SingleValue, GroupBase, StylesConfig } from 'react-select';
+import Select, {
+  Options,
+  SingleValue,
+  GroupBase,
+  StylesConfig,
+} from 'react-select';
 import { useField } from 'formik';
 
 const CUSTOM_STYLES: StylesConfig<Option, false, GroupBase<Option>> = {
@@ -47,7 +52,13 @@ interface Props {
   isDisabled?: boolean;
 }
 
-const SelectComponent: FC<Props> = ({ name, placeholder, options, className, isDisabled }) => {
+const SelectComponent: FC<Props> = ({
+  name,
+  placeholder,
+  options,
+  className,
+  isDisabled,
+}) => {
   const [{ value }, { error, touched }, { setValue }] = useField(name);
   const onChange = useCallback(
     (option: SingleValue<Option>) => {
@@ -69,7 +80,7 @@ const SelectComponent: FC<Props> = ({ name, placeholder, options, className, isD
         onChange={onChange}
         isDisabled={isDisabled}
       />
-      {showError && <div className="text-red">{error}</div>}
+      {showError && <div className='text-red'>{error}</div>}
     </div>
   );
 };

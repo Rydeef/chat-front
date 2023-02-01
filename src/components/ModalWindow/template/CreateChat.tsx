@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { FormikProvider, useFormik } from 'formik';
 import * as yup from 'yup';
-import { ReactComponent as CloseButton } from '../../../assets/close-button.svg';
-import Button from '../../Button/Button';
-import { Input } from '../../FormField/Input';
+import { FormikProvider, useFormik } from 'formik';
+import Button from 'components/Button/Button';
+import { Input } from 'components/FormField/Input';
+import { ReactComponent as CloseButton } from 'assets/close-button.svg';
 
 interface Props {
   onClose: () => void;

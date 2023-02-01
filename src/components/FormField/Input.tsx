@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { useField } from 'formik';
-
 import TextField from '../TextField/TextField';
 
 interface Props {

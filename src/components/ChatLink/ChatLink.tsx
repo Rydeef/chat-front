@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
 import {
   getChatAsync,
   getChatListAsync,
   setActiveChat,
-} from '../../app/modules/chat/actions';
+} from 'app/modules/chat/actions';
 import {
   selectChatList,
   selectIsLoadingList,
-} from '../../app/modules/chat/selectors';
+} from 'app/modules/chat/selectors';
 import Loader from '../Skeleton/Loader';
 import LoaderChatItem from '../Skeleton/LoaderChatItem';
 import ChatItem from './ChatItem';

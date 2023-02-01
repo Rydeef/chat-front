@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PATHNAMES } from '../constants/routes';
 import PageWrapper from '../components/PageWrapper/PageWrapper';
-import Home from '../pages/Home';
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import Settings from '../pages/Settings';
+import Home from 'pages/Home';
+import Login from 'pages/Login';
+import Register from 'pages/Register';
+import Settings from 'pages/Settings';
 import AppRoute from './AppRoute';
 
 const layoutRoutes: { element: ReactNode; path: PATHNAMES }[] = [

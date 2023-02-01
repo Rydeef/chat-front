@@ -1,5 +1,5 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
-import { instance } from '../../../services/axios';
+import { instance } from 'services/axios';
 import { ActiveChat, SendMessage } from './types';
 
 export const SELECT_CHAT_SLICE_NAME = 'chat';

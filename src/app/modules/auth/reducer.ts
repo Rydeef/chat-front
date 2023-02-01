@@ -1,5 +1,5 @@
 import { ActionReducerMapBuilder } from '@reduxjs/toolkit';
-import { history } from '../../../services/history';
+import { history } from 'services/history';
 import { authUserAsync, registerUserAsync, logOutUserAction } from './actions';
 import { AuthState } from './types';
 

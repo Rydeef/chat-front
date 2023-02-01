@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, useState } from 'react';
 import cn from 'classnames';
-import { ReactComponent as Eye1SVG } from '../../assets/eye-1.svg';
-import { ReactComponent as Eye2SVG } from '../../assets/eye-2.svg';
+import { ReactComponent as Eye1SVG } from 'assets/eye-1.svg';
+import { ReactComponent as Eye2SVG } from 'assets/eye-2.svg';
 
 interface Props {
   type?: 'text' | 'password';

@@ -5,8 +5,8 @@ import EmojiPicker, {
   EmojiStyle,
   Theme,
 } from 'emoji-picker-react';
-import { ReactComponent as SendMessageSVG } from '../../assets/message.svg';
-import { ReactComponent as SmileSVG } from '../../assets/smile.svg';
+import { ReactComponent as SendMessageSVG } from 'assets/message.svg';
+import { ReactComponent as SmileSVG } from 'assets/smile.svg';
 
 interface Props {
   name: string;

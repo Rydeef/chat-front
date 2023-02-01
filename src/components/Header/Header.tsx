@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { ReactComponent as Logo } from '../../assets/logo.svg';
-import { ReactComponent as CreateChat } from '../../assets/create-chat.svg';
-import { useAppSelector } from '../../app/hooks';
-import { selectUserData } from '../../app/modules/currentUser/selectors';
+import { useAppSelector } from 'app/hooks';
+import { selectUserData } from 'app/modules/currentUser/selectors';
 import Avatar from '../Avatar/Avatar';
+import { ReactComponent as Logo } from 'assets/logo.svg';
+import { ReactComponent as CreateChat } from 'assets/create-chat.svg';
 
 interface Props {
   openModal: () => void;
