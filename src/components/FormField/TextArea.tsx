@@ -27,7 +27,8 @@ const TextArea: FC<Props> = ({
 
   const [emojiBar, setEmojiBar] = useState<boolean>(false);
 
-  const selectEmoji = (emojiData: EmojiClickData) => setValue(emojiData.emoji);
+  const selectEmoji = (emojiData: EmojiClickData) =>
+    setValue(value + emojiData.emoji);
 
   const toggleClickEmoji = () => setEmojiBar((prev) => !prev);
 

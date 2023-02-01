@@ -10,7 +10,7 @@ import { Socket } from 'socket.io-client';
 const MASSAGE_NAME = 'message';
 
 const VALIDATION_SCHEMA = yup.object().shape({
-  message: yup.string().required(''),
+  message: yup.string().required().matches(/.+/),
 });
 
 export interface UserMessage {
@@ -27,7 +27,8 @@ const ChatInput: FC<Props> = ({ socket }) => {
   const chat = useAppSelector(selectActiveChat);
 
   const onSubmit = (values: UserMessage) => {
-    dispatch(sendMessageAsync({ id: chat?._id!, message: values.message }));
+    if (values.message.match(/\S/))
+      dispatch(sendMessageAsync({ id: chat?._id!, message: values.message }));
 
     formik.resetForm();
   };
@@ -44,6 +45,7 @@ const ChatInput: FC<Props> = ({ socket }) => {
   const sendMessageEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
+
       onSubmit(formik.values);
     }
 
