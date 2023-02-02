@@ -15,7 +15,7 @@ const HeaderChat = () => {
           <Avatar
             titleChat={userName}
             color={avatarColor}
-            size={AVATAR_SIZES.XS}
+            size={AVATAR_SIZES._48}
           />
           <span className='pl-3 font-bold text-lg'>{userName}</span>
         </div>

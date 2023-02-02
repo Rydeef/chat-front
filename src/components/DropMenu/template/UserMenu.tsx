@@ -5,7 +5,7 @@ import { selectUserData } from 'app/modules/currentUser/selectors';
 import { logOutUserAction } from 'app/modules/auth/actions';
 import { ReactComponent as SettingsSvg } from 'assets/settings.svg';
 import { ReactComponent as ExitSvg } from 'assets/exit.svg';
-import { ReactComponent as MoonSvg } from 'assets/moon.svg';
+import SwitchTheme from 'components/Button/SwitchTheme';
 
 const STYLE_MENU_ITEM =
   'flex fill-[#C6C5C5]/80 select-none mx-2 items-center p-2 rounded-md cursor-pointer duration-100 hover:bg-gray-2 hover:text-white hover:fill-[#C6C5C5]/100 ';
@@ -24,7 +24,7 @@ const UserMenu = () => {
       <div className='grid gap-3 bg-[#232325] w-[220px] py-3'>
         <div className='flex justify-between mx-5'>
           <span className='text-[24px]'>{userName}</span>
-          <MoonSvg className='w-6 shrink-0 fill-white' />
+          <SwitchTheme />
         </div>
         <div className='py-2 border-y-2 border-white'>
           <div className={STYLE_MENU_ITEM}>

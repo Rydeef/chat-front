@@ -8,7 +8,7 @@ const SwitchTheme = () => {
 
   return (
     <div
-      className='w-10 h-10 flex items-center justify-center p-1 rounded-lg cursor-pointer bg-white duration-500 dark:bg-black dark:fill-white'
+      className='w-9 h-9 flex items-center justify-center p-1 rounded-lg cursor-pointer bg-white duration-500 dark:bg-black dark:fill-white'
       onClick={toggleTheme}
     >
       {theme === 'light' ? <SunSVG /> : <MoonSVG />}
