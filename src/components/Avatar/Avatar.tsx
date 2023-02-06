@@ -23,22 +23,18 @@ const Avatar: FC<Props> = ({
     size
   );
 
+  if (isLoading) return <LoaderAvatar size={size} />;
+
   return (
-    <>
-      {!isLoading ? (
-        <div
-          className={defaultClassName}
-          style={{ backgroundColor: `#${color}` }}
-          onClick={onClick}
-        >
-          <span className='text-center'>
-            {titleChat && titleChat[0].toUpperCase()}
-          </span>
-        </div>
-      ) : (
-        <LoaderAvatar size={size} />
-      )}
-    </>
+    <div
+      className={defaultClassName}
+      style={{ backgroundColor: `#${color}` }}
+      onClick={onClick}
+    >
+      <span className='text-center'>
+        {titleChat && titleChat[0].toUpperCase()}
+      </span>
+    </div>
   );
 };
 
