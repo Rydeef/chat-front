@@ -3,7 +3,7 @@ import { RootState } from 'app/store';
 
 export const selectChatState = (state: RootState) => state.currentUser;
 
-export const selectIsLoading = createSelector(
+export const selectIsLoadingUserData = createSelector(
   selectChatState,
   (state) => state.isLoading
 );

@@ -23,7 +23,7 @@ const Settings = () => {
     <div className='w-full h-[800px] flex justify-center mt-10'>
       <div className='bg-transparent py-10 px-20 rounded-md overflow-y-auto'>
         <div className='flex relative justify-center'>
-          <Avatar color='827397' titleChat='T' size={AVATAR_SIZES.L} />
+          <Avatar color='827397' titleChat='T' size={AVATAR_SIZES._128} />
           <ArrowBackSVG
             className='w-8 cursor-pointer absolute top-0 left-0 duration-300 fill-white/80 hover:fill-white/100'
             onClick={redirectBack}
