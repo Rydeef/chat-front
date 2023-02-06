@@ -21,7 +21,7 @@ const ModalWindow: FC<Props> = ({ children, isOpen, onClose }) => {
         onClick={onClose}
       >
         <div
-          className='fixed top-1/2 -translate-y-2/4 left-1/2 -translate-x-2/4 opacity-100 p-8 bg-[#191919] rounded-2xl text-white'
+          className='fixed top-1/2 -translate-y-2/4 left-1/2 -translate-x-2/4 opacity-100 p-8 rounded-2xl text-white bg-slate-200 dark:bg-dark '
           onClick={handlerClick}
         >
           {children}

@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 import { AVATAR_SIZES } from './constants';
+import LoaderAvatar from 'components/Skeleton/LoaderAvatar';
 
 interface Props {
   titleChat?: string;
   color?: string;
+  isLoading?: boolean;
   size?: AVATAR_SIZES;
   onClick?: VoidFunction;
 }
@@ -12,7 +14,8 @@ interface Props {
 const Avatar: FC<Props> = ({
   titleChat = '',
   color,
-  size = AVATAR_SIZES.S,
+  isLoading,
+  size = AVATAR_SIZES._64,
   onClick,
 }) => {
   const defaultClassName: string = cn(
@@ -20,9 +23,17 @@ const Avatar: FC<Props> = ({
     size
   );
 
+  if (isLoading) return <LoaderAvatar size={size} />;
+
   return (
-    <div className={defaultClassName} style={{ backgroundColor: `#${color}` }}>
-      <span className='text-center'>{titleChat[0]}</span>
+    <div
+      className={defaultClassName}
+      style={{ backgroundColor: `#${color}` }}
+      onClick={onClick}
+    >
+      <span className='text-center text-white'>
+        {titleChat && titleChat[0].toUpperCase()}
+      </span>
     </div>
   );
 };

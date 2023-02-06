@@ -1,3 +1,6 @@
+import { useAppSelector } from 'app/hooks';
+import { selectActiveChat } from 'app/modules/chat/selectors';
+import classNames from 'classnames';
 import React, { FC } from 'react';
 import Avatar from '../Avatar/Avatar';
 import { ChatType } from './types';
@@ -8,13 +11,23 @@ interface Props {
 }
 
 const ChatItem: FC<Props> = ({ messageItems, onClickItem }) => {
+  const { _id } = useAppSelector(selectActiveChat) || {};
+
+  const onClickChatItem = (chat: ChatType) => () => onClickItem(chat);
+
   return (
     <>
       {messageItems?.map((chat) => (
         <div
           key={chat._id}
-          className='w-80 flex items-center bg-dark px-4 py-5 my-3 rounded cursor-pointer '
-          onClick={() => onClickItem(chat)}
+          className={classNames(
+            'duration-300 w-80 flex items-center px-4 py-5 my-3 rounded cursor-pointer opacity-70 bg-[#E9E9E9]/80 dark:bg-dark/70',
+            {
+              'outline outline-1 !opacity-100 !bg-[#E9E9E9]/100 dark:outline-white/50 dark:!bg-dark/100':
+                chat._id === _id,
+            }
+          )}
+          onClick={onClickChatItem(chat)}
         >
           <Avatar titleChat={chat.userName} color={chat.avatarColor} />
           <div className='w-full flex flex-col gap-3 ml-5 truncate'>

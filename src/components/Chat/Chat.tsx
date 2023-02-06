@@ -21,7 +21,7 @@ const Chat: FC<Props> = ({ socket }) => {
   if (chat === null) return <Default />;
 
   return (
-    <div className='w-full h-[800px] flex flex-col bg-dark relative'>
+    <div className='w-full h-200 flex flex-col relative bg-white dark:bg-dark '>
       {isLoading ? (
         <div className='w-full h-full flex justify-center items-center'>
           <Loader size={LOADER_SIZES.L} />

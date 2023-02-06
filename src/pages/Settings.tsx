@@ -20,10 +20,10 @@ const Settings = () => {
   };
 
   return (
-    <div className='w-full h-[800px] flex justify-center mt-10'>
-      <div className='bg-transparent py-10 px-20 rounded-md overflow-y-auto'>
+    <div className='w-full h-200 flex justify-center mt-10'>
+      <div className='py-10 px-20 rounded-md overflow-y-auto bg-slate-500 dark:bg-transparent'>
         <div className='flex relative justify-center'>
-          <Avatar color='827397' titleChat='T' size={AVATAR_SIZES.L} />
+          <Avatar color='827397' titleChat='T' size={AVATAR_SIZES._128} />
           <ArrowBackSVG
             className='w-8 cursor-pointer absolute top-0 left-0 duration-300 fill-white/80 hover:fill-white/100'
             onClick={redirectBack}
@@ -33,7 +33,7 @@ const Settings = () => {
           <FormChangeName />
           <ChangePassword />
           <div className='w-full h-full pt-5'>
-            <div className='flex flex-col bg-primary px-5 py-3 divide-y divide-white rounded-md mt-10'>
+            <div className='flex flex-col px-5 py-3 divide-y divide-white rounded-md mt-10 bg-slate-400 dark:bg-primary'>
               <button
                 type='button'
                 className='py-3 duration-300 font-bold text-[#F40000]/70 hover:text-[#F40000]/100'
