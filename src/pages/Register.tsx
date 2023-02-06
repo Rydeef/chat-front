@@ -62,8 +62,12 @@ const Register = () => {
           </div>
           <Input name='userName' placeholder='Login' />
           <Input name='email' placeholder='E-mail' />
-          <Input name='password' placeholder='Enter password' />
-          <Input name='confirmPassword' placeholder='Confirm password' />
+          <Input type='password' name='password' placeholder='Enter password' />
+          <Input
+            type='password'
+            name='confirmPassword'
+            placeholder='Confirm password'
+          />
           <div className='flex w-full mt-9'>
             <Button
               type='submit'
