@@ -13,6 +13,8 @@ interface Props {
 const ChatItem: FC<Props> = ({ messageItems, onClickItem }) => {
   const { _id } = useAppSelector(selectActiveChat) || {};
 
+  const onClickChatItem = (chat: ChatType) => () => onClickItem(chat);
+
   return (
     <>
       {messageItems?.map((chat) => (
@@ -25,7 +27,7 @@ const ChatItem: FC<Props> = ({ messageItems, onClickItem }) => {
                 chat._id === _id,
             }
           )}
-          onClick={() => onClickItem(chat)}
+          onClick={onClickChatItem(chat)}
         >
           <Avatar titleChat={chat.userName} color={chat.avatarColor} />
           <div className='w-full flex flex-col gap-3 ml-5 truncate'>
