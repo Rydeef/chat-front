@@ -29,7 +29,7 @@ export const authUserAsync = createAsyncThunk(
     } catch (e: any) {
       toast.error(e.message);
 
-      history.push('login');
+      history.push('/login');
 
       return rejectWithValue(e?.responce.data.message);
     }
