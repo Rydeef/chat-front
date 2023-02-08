@@ -4,9 +4,10 @@ import ChatLink from '../ChatLink/ChatLink';
 interface Props {
   leftPanel: MutableRefObject<HTMLDivElement | null>;
   mouseDown: VoidFunction;
+  dblClick: VoidFunction;
 }
 
-const Sidebar: FC<Props> = ({ leftPanel, mouseDown }) => {
+const Sidebar: FC<Props> = ({ leftPanel, mouseDown, dblClick }) => {
   return (
     <div className='flex'>
       <div ref={leftPanel} className='w-105 h-200 bg-primary flex flex-col'>
@@ -20,6 +21,7 @@ const Sidebar: FC<Props> = ({ leftPanel, mouseDown }) => {
       <div
         className='bg-gray-600 h-200 w-0.5 cursor-col-resize active:bg-gray-500'
         onMouseDown={mouseDown}
+        onDoubleClick={dblClick}
       />
     </div>
   );

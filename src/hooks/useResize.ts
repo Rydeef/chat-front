@@ -23,6 +23,7 @@ export const useResize = () => {
 
   const mouseUp = () => setUnlock(false);
   const mouseDown = () => setUnlock(true);
+  const dblClick = () => leftPanel.current!.removeAttribute('style');
 
-  return { leftPanel, mouseMove, mouseUp, mouseDown };
+  return { leftPanel, mouseMove, mouseUp, mouseDown, dblClick };
 };
