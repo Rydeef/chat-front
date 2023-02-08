@@ -53,7 +53,6 @@ module.exports = {
           backgroundColor: 'red',
           borderRadius: '8px',
         },
-        body: {},
         '#root': {
           height: '100vh',
         },

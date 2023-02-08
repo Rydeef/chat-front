@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from 'hooks/useTheme';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { Theme, ToastContainer } from 'react-toastify';
 import AppRoutes from './router/Router';
 import { history } from './services/history';
 
@@ -21,7 +21,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme={theme as any}
+        theme={theme as Theme}
       />
     </HistoryRouter>
   );
