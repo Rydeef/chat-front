@@ -21,11 +21,8 @@ export const useResize = () => {
     }
   };
 
-  const parrentMouseUp = () => {
-    setUnlock(false);
-  };
-
+  const mouseUp = () => setUnlock(false);
   const mouseDown = () => setUnlock(true);
 
-  return { leftPanel, mouseMove, parrentMouseUp, mouseDown };
+  return { leftPanel, mouseMove, mouseUp, mouseDown };
 };

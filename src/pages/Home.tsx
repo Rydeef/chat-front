@@ -14,7 +14,7 @@ const Home = () => {
 
   const socket = useRef<Socket | null>(null);
 
-  const { leftPanel, mouseMove, parrentMouseUp, mouseDown } = useResize();
+  const { leftPanel, mouseMove, mouseUp, mouseDown } = useResize();
 
   useEffect(() => {
     socket.current = io('http://localhost:5000');
@@ -36,11 +36,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div
-      className='flex mt-8'
-      onMouseUp={parrentMouseUp}
-      onMouseMove={mouseMove}
-    >
+    <div className='flex mt-8' onMouseUp={mouseUp} onMouseMove={mouseMove}>
       <Sidebar leftPanel={leftPanel} mouseDown={mouseDown} />
       <Chat socket={socket.current} />
     </div>
