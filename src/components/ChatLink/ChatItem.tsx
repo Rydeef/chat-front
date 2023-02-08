@@ -21,7 +21,7 @@ const ChatItem: FC<Props> = ({ messageItems, onClickItem }) => {
         <div
           key={chat._id}
           className={classNames(
-            'duration-300 w-80 flex items-center bg-dark/70 px-4 py-5 my-3 rounded cursor-pointer',
+            'duration-300 w-full flex items-center bg-dark/70 px-4 py-5 my-3 rounded cursor-pointer select-none',
             {
               'bg-dark/100 outline outline-1 outline-white/50':
                 chat._id === _id,
