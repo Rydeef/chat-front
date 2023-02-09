@@ -5,10 +5,11 @@ const IS_SYSTEM_THEME = window.matchMedia(
 ).matches;
 
 const SYSTEM_THEME = IS_SYSTEM_THEME ? 'dark' : 'light';
-const CURRENT_THEME = window.localStorage.getItem('theme');
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState(CURRENT_THEME || SYSTEM_THEME);
+  const currentTheme = window.localStorage.getItem('theme');
+
+  const [theme, setTheme] = useState(currentTheme || SYSTEM_THEME);
 
   useLayoutEffect(() => {
     document.documentElement.setAttribute('class', theme);
