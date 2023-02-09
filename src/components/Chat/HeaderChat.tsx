@@ -9,7 +9,7 @@ const HeaderChat = () => {
   const { avatarColor, userName } = useAppSelector(selectActiveChat) || {};
 
   return (
-    <div className='w-full bg-black px-5 py-3 sticky top-0 border-b-2 border-gray-0 mb-5'>
+    <div className='w-full px-5 py-3 sticky top-0 border-b-2  mb-5 border-slate-500 bg-slate-400 dark:border-gray-0 dark:bg-black'>
       <div className='h-full flex items-center justify-between'>
         <div className='flex items-center justify-between'>
           <Avatar
