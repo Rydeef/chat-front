@@ -5,7 +5,6 @@ interface Props {
 }
 
 const AppRoute: FC<Props> = ({ children }) => {
-  // future loggedin logic
   return <>{children}</>;
 };
 

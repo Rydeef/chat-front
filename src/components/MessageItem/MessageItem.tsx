@@ -22,7 +22,8 @@ const MessageItem: FC<Props> = ({ userName, message, time, fromSelf }) => {
     >
       <div
         className={cn('flex flex-col px-3 py-3', {
-          'text-right rounded-l-lg rounded-br-lg bg-message-0': fromSelf,
+          'text-right text-white rounded-l-lg rounded-br-lg bg-message-0':
+            fromSelf,
           'rounded-r-lg rounded-tl-lg bg-message-1': !fromSelf,
         })}
       >
