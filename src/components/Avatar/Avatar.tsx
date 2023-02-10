@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { AVATAR_SIZES } from './constants';
 import LoaderAvatar from 'components/Skeleton/LoaderAvatar';
+import { AVATAR_SIZES } from './constants';
 
 interface Props {
   titleChat?: string;

@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { FormikProvider, useFormik } from 'formik';
 import Button from 'components/Button/Button';
 import { Input } from 'components/FormField/Input';
-import { ReactComponent as CloseButton } from 'assets/close-button.svg';
+import { ReactComponent as CloseButton } from 'assets/close.svg';
 
 interface Props {
   onClose: () => void;
