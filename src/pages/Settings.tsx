@@ -10,7 +10,6 @@ import { ReactComponent as ArrowBackSVG } from 'assets/arrow-back.svg';
 import ModalWindow from 'components/ModalWindow/ModalWindow';
 import { useModal } from 'hooks/useModal';
 import ChangeAvatar from 'components/ModalWindow/template/ChangeAvatar';
-import Upload from 'components/Upload/Upload';
 
 const Settings = () => {
   const { isOpen, closeModal, openModal } = useModal();
