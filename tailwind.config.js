@@ -55,10 +55,6 @@ module.exports = {
           backgroundColor: 'red',
           borderRadius: '8px',
         },
-        body: {
-          backgroundColor: '#2B2A39',
-          color: 'white',
-        },
         '#root': {
           height: '100vh',
         },

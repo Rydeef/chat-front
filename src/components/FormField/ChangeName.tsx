@@ -34,19 +34,19 @@ const FormChangeName = () => {
 
   return (
     <FormikProvider value={formik}>
-      <form onSubmit={formik.handleSubmit} className='w-[800px] h-full'>
+      <form onSubmit={formik.handleSubmit} className='w-200 h-full'>
         <div className='my-16'>
           <Input name='name' placeholder='Name' className='w-full' />
-          <Input name='password' placeholder='Password' />
+          <Input type='password' name='password' placeholder='Password' />
           <div className='flex justify-between'>
-            <Button color='green' type='submit' className='w-[250px]'>
+            <Button color='primary' type='submit' className='w-60'>
               Save
             </Button>
             <Button
               color='red'
               type='button'
               onClick={formik.resetForm}
-              className='w-[250px]'
+              className='w-60'
             >
               Cancel
             </Button>

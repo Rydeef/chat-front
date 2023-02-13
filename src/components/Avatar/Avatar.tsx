@@ -31,7 +31,7 @@ const Avatar: FC<Props> = ({
       style={{ backgroundColor: `#${color}` }}
       onClick={onClick}
     >
-      <span className='text-center'>
+      <span className='text-center text-white'>
         {titleChat && titleChat[0].toUpperCase()}
       </span>
     </div>

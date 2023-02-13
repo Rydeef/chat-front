@@ -7,6 +7,7 @@ import Login from 'pages/Login';
 import Register from 'pages/Register';
 import Settings from 'pages/Settings';
 import AppRoute from './AppRoute';
+import NotFound from 'pages/NotFound';
 
 const layoutRoutes: { element: ReactNode; path: PATHNAMES }[] = [
   {
@@ -21,7 +22,7 @@ const layoutRoutes: { element: ReactNode; path: PATHNAMES }[] = [
 
 const routes = [
   {
-    element: <div>Not found</div>,
+    element: <NotFound />,
     path: PATHNAMES.NOT_FOUND,
   },
   {

@@ -40,9 +40,8 @@ const ChatWindow: FC<Props> = ({ chat, socket }) => {
             />
           </div>
         ))}
-        <div className='absolute w-[500px] h-[500px] top-0 left-0'></div>
       </div>
-      <div className='w-full h-16 bg-dark sticky bottom-0 flex justify-center px-5 py-3 self-end'>
+      <div className='w-full h-16 sticky bottom-0 flex justify-center px-5 py-3 self-end bg-slate-400 dark:bg-dark'>
         <ChatInput socket={socket} />
       </div>
     </div>

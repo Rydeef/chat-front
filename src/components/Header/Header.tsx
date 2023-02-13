@@ -19,10 +19,13 @@ const Header: FC<Props> = ({ openModal, toggleClickAvatar }) => {
   const isLoading = useAppSelector(selectIsLoadingUserData);
 
   return (
-    <div className='w-full flex px-7 justify-between items-center bg-dark rounded-b-lg'>
+    <div className='w-full flex px-7 justify-between items-center rounded-b-lg duration-300 bg-slate-200 dark:bg-dark'>
       <Logo className='w-11' />
       <div className='flex w-28 justify-between items-center'>
-        <CreateChat className='cursor-pointer fill-white' onClick={openModal} />
+        <CreateChat
+          className='cursor-pointer fill-dark dark:fill-white'
+          onClick={openModal}
+        />
         <Avatar
           size={AVATAR_SIZES._44}
           color={avatarColor}

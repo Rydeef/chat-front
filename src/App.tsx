@@ -1,10 +1,13 @@
 import React from 'react';
+import { useTheme } from 'hooks/useTheme';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { Theme, ToastContainer } from 'react-toastify';
 import AppRoutes from './router/Router';
 import { history } from './services/history';
 
 function App() {
+  const { theme } = useTheme();
+
   return (
     <HistoryRouter history={history as any}>
       <AppRoutes />
@@ -18,7 +21,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='dark'
+        theme={theme as Theme}
       />
     </HistoryRouter>
   );

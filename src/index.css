@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  transition: all .3s ease;
+}
+
+html[class='light'] {
+  background-color: #AAB7C6;
+  color: black;
+}
+
+html[class='dark'] {
+  background-color: #2b2a39;
+  color: white;
+}
 
 body {
   margin: 0;
@@ -16,3 +29,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+

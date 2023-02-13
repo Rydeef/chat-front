@@ -39,10 +39,13 @@ const CreateChat: FC<Props> = ({ onClose }) => {
       <form onSubmit={formik.handleSubmit}>
         <div className='w-[500px] grid gap-4'>
           <div className='flex justify-between items-center mb-5'>
-            <span className='text-4xl text-[#39C198] uppercase tracking-wide'>
+            <span className='text-4xl text-accent uppercase tracking-wide'>
               Create chat
             </span>
-            <CloseButton onClick={onClose} className='cursor-pointer' />
+            <CloseButton
+              onClick={onClose}
+              className='cursor-pointer text-black dark:text-white'
+            />
           </div>
           <Input placeholder='Name chat' name='nameChat' />
           <div>
