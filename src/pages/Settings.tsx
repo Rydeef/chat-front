@@ -7,8 +7,13 @@ import ChangePassword from 'components/FormField/ChangePassword';
 import { ReactComponent as ArrowBackSVG } from 'assets/arrow-back.svg';
 import Avatar from 'components/Avatar/Avatar';
 import { AVATAR_SIZES } from 'components/Avatar/constants';
+import ModalWindow from 'components/ModalWindow/ModalWindow';
+import DeleteAccout from 'components/ModalWindow/template/DeleteAccount';
+import { useModal } from 'hooks/useModal';
 
 const Settings = () => {
+  const { isOpen, openModal, closeModal } = useModal();
+
   const dispatch = useAppDispatch();
 
   const logOut = () => {
@@ -37,6 +42,7 @@ const Settings = () => {
               <button
                 type='button'
                 className='py-3 duration-300 font-bold text-[#F40000]/70 hover:text-[#F40000]/100'
+                onClick={openModal}
               >
                 Delete accout
               </button>
@@ -50,6 +56,9 @@ const Settings = () => {
           </div>
         </div>
       </div>
+      <ModalWindow isOpen={isOpen} onClose={closeModal}>
+        <DeleteAccout closeModal={closeModal} />
+      </ModalWindow>
     </div>
   );
 };
