@@ -4,11 +4,16 @@ import { useAppDispatch } from 'app/hooks';
 import { logOutUserAction } from 'app/modules/auth/actions';
 import FormChangeName from 'components/FormField/ChangeName';
 import ChangePassword from 'components/FormField/ChangePassword';
-import { ReactComponent as ArrowBackSVG } from 'assets/arrow-back.svg';
 import Avatar from 'components/Avatar/Avatar';
 import { AVATAR_SIZES } from 'components/Avatar/constants';
+import { ReactComponent as ArrowBackSVG } from 'assets/arrow-back.svg';
+import ModalWindow from 'components/ModalWindow/ModalWindow';
+import { useModal } from 'hooks/useModal';
+import ChangeAvatar from 'components/ModalWindow/template/ChangeAvatar';
 
 const Settings = () => {
+  const { isOpen, closeModal, openModal } = useModal();
+
   const dispatch = useAppDispatch();
 
   const logOut = () => {
@@ -23,7 +28,12 @@ const Settings = () => {
     <div className='w-full h-200 flex justify-center mt-10'>
       <div className='py-10 px-20 rounded-md overflow-y-auto bg-slate-500 dark:bg-transparent'>
         <div className='flex relative justify-center'>
-          <Avatar color='827397' titleChat='T' size={AVATAR_SIZES._128} />
+          <Avatar
+            color='827397'
+            titleChat='T'
+            onClick={openModal}
+            size={AVATAR_SIZES._128}
+          />
           <ArrowBackSVG
             className='w-8 cursor-pointer absolute top-0 left-0 duration-300 fill-white/80 hover:fill-white/100'
             onClick={redirectBack}
@@ -50,6 +60,9 @@ const Settings = () => {
           </div>
         </div>
       </div>
+      <ModalWindow isOpen={isOpen} onClose={closeModal}>
+        <ChangeAvatar onClose={closeModal} />
+      </ModalWindow>
     </div>
   );
 };
