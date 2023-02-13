@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { FC, MutableRefObject } from 'react';
 import ChatLink from '../ChatLink/ChatLink';
 
-const Sidebar = () => {
+interface Props {
+  leftPanel: MutableRefObject<HTMLDivElement | null>;
+  mouseDown: VoidFunction;
+  dblClick: VoidFunction;
+}
+
+const Sidebar: FC<Props> = ({ leftPanel, mouseDown, dblClick }) => {
   return (
-    <div className='w-105 h-200 flex flex-col duration-300 bg-slate-400 dark:bg-primary'>
-      <div className='w-full h-20 p-5 flex items-center tracking-widest text-white text-lg bg-slate-500 dark:bg-gray-1'>
-        Chats
+    <div className='flex'>
+      <div ref={leftPanel} className='w-105 h-200 bg-primary flex flex-col'>
+        <div className='w-full h-16 bg-gray-1 p-5 flex items-center tracking-widest text-lg'>
+          Chats
+        </div>
+        <div className='overflow-auto px-3'>
+          <ChatLink />
+        </div>
       </div>
-      <div className='overflow-auto px-3'>
-        <ChatLink />
-      </div>
+      <div
+        className='bg-gray-600 h-200 w-0.5 cursor-col-resize active:bg-gray-500'
+        onMouseDown={mouseDown}
+        onDoubleClick={dblClick}
+      />
     </div>
   );
 };

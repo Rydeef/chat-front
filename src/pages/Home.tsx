@@ -5,6 +5,7 @@ import { selectCurrentMessage } from 'app/modules/chat/selectors';
 import { getCurrentUser } from 'app/modules/currentUser/actions';
 import Chat from 'components/Chat/Chat';
 import Sidebar from 'components/Sidebar/Sidebar';
+import { useResize } from 'hooks/useResize';
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -12,6 +13,8 @@ const Home = () => {
   const currentSendingMessage = useAppSelector(selectCurrentMessage);
 
   const socket = useRef<Socket | null>(null);
+
+  const { leftPanel, mouseMove, mouseUp, mouseDown, dblClick } = useResize();
 
   useEffect(() => {
     socket.current = io('http://localhost:5000');
@@ -33,8 +36,12 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div className='flex mt-8'>
-      <Sidebar />
+    <div className='flex mt-8' onMouseUp={mouseUp} onMouseMove={mouseMove}>
+      <Sidebar
+        leftPanel={leftPanel}
+        mouseDown={mouseDown}
+        dblClick={dblClick}
+      />
       <Chat socket={socket.current} />
     </div>
   );
