@@ -27,19 +27,21 @@ const ChatWindow: FC<Props> = ({ chat, socket }) => {
   }, [ref]);
 
   return (
-    <div className='h-full flex flex-col overflow-y-auto'>
+    <div className='h-full flex flex-col'>
       <HeaderChat />
-      <div className='h-full px-5 flex flex-col justify-end'>
-        {chat?.map(({ id, userName, message, time, fromSelf }, index) => (
-          <div key={id} ref={index === chat.length - 1 ? ref : null}>
-            <MessageItem
-              fromSelf={fromSelf}
-              userName={userName}
-              message={message}
-              time={time}
-            />
-          </div>
-        ))}
+      <div className='overflow-y-auto h-200'>
+        <div className='flex flex-col justify-end min-h-full px-5'>
+          {chat?.map(({ id, userName, message, time, fromSelf }, index) => (
+            <div key={id} ref={index === chat.length - 1 ? ref : null}>
+              <MessageItem
+                fromSelf={fromSelf}
+                userName={userName}
+                message={message}
+                time={time}
+              />
+            </div>
+          ))}
+        </div>
       </div>
       <div className='w-full h-16 sticky bottom-0 flex justify-center px-5 py-3 self-end bg-slate-400 dark:bg-dark'>
         <ChatInput socket={socket} />
